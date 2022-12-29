@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const NavBar = () => {
   const navBarObject = [
     {
@@ -35,7 +37,9 @@ const NavBar = () => {
   return (
     <ul>
       {navBarObject.map((element) => (
-        <li key={element.name}>{element.text}</li>
+        <Link to={element.link} key={element.name}>
+          {element.text}
+        </Link>
       ))}
     </ul>
   );
