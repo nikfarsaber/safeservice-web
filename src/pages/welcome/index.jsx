@@ -1,9 +1,12 @@
 import NavBar from "../../component/NavBar";
 import SocialMediaRef from "../../component/SocialMediaRef";
+
+import welcomeBackground from "../../assets/pngFolder/welcome-background.png";
+
 const Welcome = () => {
   return (
     <>
-      <img className="backgroundImg" alt="" />
+      <img className="backgroundImg" src={welcomeBackground} alt="" />
       <div className="shadowOnBackground"></div>
       <header>
         <NavBar />
