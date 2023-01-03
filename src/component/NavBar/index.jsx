@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import styles from "./navBar.module.css";
 
 const NavBar = () => {
   const navBarObject = [
@@ -35,9 +36,9 @@ const NavBar = () => {
   ];
 
   return (
-    <ul>
+    <ul className={styles.navbarList}>
       {navBarObject.map((element) => (
-        <Link to={element.link} key={element.name}>
+        <Link className={styles.link} to={element.link} key={element.name}>
           {element.text}
         </Link>
       ))}

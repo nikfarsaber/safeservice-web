@@ -2,5 +2,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "B Yekan";
   direction: rtl;
+}
+
+/* Font */
+@font-face {
+  font-family: "B Yekan";
+  src: url("//db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.eot");
+  src: url("//db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/52ce4de2efeeb8b18dcbd379711224f3.svg#B Yekan")
+      format("svg");
 }

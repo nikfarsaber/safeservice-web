@@ -1,33 +1,34 @@
 import NavBar from "../../component/NavBar";
-import SocialMediaRef from "../../component/SocialMediaRef";
+import SocialMedia from "./helper/SocialMedia";
+
+import styles from "./welcome.module.css";
 
 import welcomeBackground from "../../assets/pngFolder/welcome-background.png";
+import { ArowSvg } from "../../assets/SvgInput";
 
 const Welcome = () => {
   return (
-    <>
-      <img className="backgroundImg" src={welcomeBackground} alt="" />
-      <div className="shadowOnBackground"></div>
+    <div className={styles.page}>
+      <img className={styles.backgroundImg} src={welcomeBackground} alt="" />
+      <div className={styles.shadowOnBackground}></div>
       <header>
         <NavBar />
-        <button>دریافت اپلیکیشن</button>
+        <button className={styles.getApp}>دریافت اپلیکیشن</button>
       </header>
-      <div className="social-media-box">
-        <SocialMediaRef />
+      <SocialMedia className={styles.socialMediaBox} />
+      <div className={styles.linkTo}>
+        <p>۰۱ / ریچستر موبایل</p>
+        <p>۰۲ / ثبت گارانتی</p>
       </div>
-      <div className="link-to">
-        <a href="#">۰۱/ ریچستر موبایل</a>
-        <a href="#">۰۲/ ثبت گارانتی</a>
+      <div className={styles.goToHome}>
+        <ArowSvg color={"white"} />
       </div>
-      <div className="go-to-home-page"></div>
-      <div className="text-area">
+      <div className={styles.textArea}>
         <p>خرید آسان و بی‌دغدغه تلفن‌های همراه</p>
         <p>از برندهای روز دنیا با بهترین قیمت و بدون واسطه با</p>
-        <p>
-          <strong>سیف سرویس</strong>
-        </p>
+        <h3>سیف سرویس</h3>
       </div>
-    </>
+    </div>
   );
 };
 

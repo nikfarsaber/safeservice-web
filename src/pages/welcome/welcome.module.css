@@ -1,0 +1,106 @@
+.backgroundImg {
+  position: absolute;
+  object-fit: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.linkTo,
+.shadowOnBackground,
+.socialMediaBox,
+.goToHome,
+.textArea,
+header {
+  position: absolute;
+}
+
+header {
+  top: 60px;
+  right: 70px;
+  display: flex;
+  gap: 61px;
+  align-items: center;
+}
+
+.socialMediaBox {
+  top: 0;
+  left: -40px;
+}
+
+.getApp {
+  border: 1px solid #000;
+  background: transparent;
+  border-radius: 25px;
+  padding: 28px 36px;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.shadowOnBackground {
+  top: 0;
+  left: 0;
+  width: 44%;
+  height: 100vh;
+  background: linear-gradient(
+    89.72deg,
+    rgba(7, 7, 7, 0.27) 0.24%,
+    rgba(0, 0, 0, 0.27) 23.28%,
+    rgba(0, 0, 0, 0.27) 48.98%,
+    rgba(0, 0, 0, 0.27) 62.43%,
+    rgba(3, 3, 3, 0.1971) 77.46%,
+    rgba(7, 7, 7, 0) 99.75%
+  );
+}
+
+.goToHome {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  right: 50px;
+  bottom: 43px;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.linkTo {
+  left: 99px;
+  bottom: 81px;
+  display: flex;
+  gap: 40px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: 400;
+}
+
+.linkTo > p {
+  cursor: pointer;
+}
+
+.textArea {
+  top: 273px;
+  right: 64px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 36px;
+  font-weight: 400;
+}
+
+.textArea > p {
+  font-size: 24px;
+}
+
+.textArea > h3 {
+  font-size: 32px;
+}

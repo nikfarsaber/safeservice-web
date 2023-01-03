@@ -1,0 +1,17 @@
+.socialMediaBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
+.rotatedSocial {
+  rotate: 270deg;
+}
+
+.line {
+  border-right: #fff solid 1px;
+  height: 30%;
+  margin-block: 120px;
+}
