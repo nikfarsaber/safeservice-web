@@ -17,11 +17,11 @@
 .socialMediaBox,
 .goToHome,
 .textArea,
-header {
+.header {
   position: absolute;
 }
 
-header {
+.header {
   top: 60px;
   right: 70px;
   display: flex;

@@ -11,7 +11,7 @@ const Welcome = () => {
     <div className={styles.page}>
       <img className={styles.backgroundImg} src={welcomeBackground} alt="" />
       <div className={styles.shadowOnBackground}></div>
-      <header>
+      <header className={styles.header}>
         <NavBar />
         <button className={styles.getApp}>دریافت اپلیکیشن</button>
       </header>
