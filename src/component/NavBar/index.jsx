@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./navBar.module.css";
 
-const NavBar = () => {
+const NavBar = ({ fontSize = "24px", spaceBetween = "38px" }) => {
   const navBarObject = [
     {
       name: "about-us",
@@ -36,9 +36,14 @@ const NavBar = () => {
   ];
 
   return (
-    <ul className={styles.navbarList}>
+    <ul style={{ gap: spaceBetween }} className={styles.navbarList}>
       {navBarObject.map((element) => (
-        <Link className={styles.link} to={element.link} key={element.name}>
+        <Link
+          style={{ fontSize: fontSize }}
+          className={styles.link}
+          to={element.link}
+          key={element.name}
+        >
           {element.text}
         </Link>
       ))}

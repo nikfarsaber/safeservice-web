@@ -6,12 +6,14 @@ import ContactUs from "../pages/ContactUs";
 import Trainings from "../pages/Trainings";
 import Repair from "../pages/Repair";
 import News from "../pages/News";
+import Home from "../pages/Home";
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Welcome />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/products" element={<Products />} />
         <Route path="/contact-us" element={<ContactUs />} />
