@@ -1,5 +1,7 @@
 import styles from "./footer.module.css";
 
+import { Link } from "react-router-dom";
+
 import enamadIcon from "../../assets/pngFolder/enamad.png";
 import logo from "../../assets/pngFolder/safeservice-logo.png";
 import { CallSvg, LocationSvg, MailSvg } from "../../assets/SvgInput";
@@ -13,9 +15,21 @@ const Footer = () => {
       <div className={styles.upSection}>
         <img src={logo} alt="safeservice logo" className={styles.logo} />
         <ul className={styles.aboutUs}>
-          <li>تماس با ما</li>
-          <li>درباره ما</li>
-          <li>اخبار سیف سرویس</li>
+          <li>
+            <Link className={styles.linkTo} to="/contact-us">
+              تماس با ما
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.linkTo} to="/about-us">
+              درباره ما
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.linkTo} to="/news">
+              اخبار
+            </Link>
+          </li>
         </ul>
         <ul className={styles.contactUs}>
           <li>
@@ -45,9 +59,14 @@ const Footer = () => {
           text="ثبت ایمیل در خبرنامه"
           placeholder="آدرس ایمیل شما"
         />
-        <Button which="confirm" text="ثبت" importStyle={{ fontSize: "20px" }} />
+        <Button
+          which="confirm"
+          text="ثبت"
+          importStyle={{ fontSize: "20px" }}
+          className={styles.confirmButton}
+        />
       </div>
-      <img src={enamadIcon} alt="enamad logo" />
+      <img src={enamadIcon} alt="enamad logo" className={styles.enamadIcon} />
     </footer>
   );
 };
