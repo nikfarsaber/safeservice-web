@@ -5,6 +5,7 @@ import logo from "../../assets/pngFolder/safeservice-logo.png";
 import { CallSvg, LocationSvg, MailSvg } from "../../assets/SvgInput";
 import SocialMediaRef from "../../component/SocialMediaRef";
 import Button from "../../UI/Button";
+import Input from "../../UI/Input";
 
 const Footer = () => {
   return (
@@ -39,7 +40,11 @@ const Footer = () => {
         </ul>
       </div>
       <div className={styles.downSection}>
-        <input type="text" />
+        <Input
+          type="text"
+          text="ثبت ایمیل در خبرنامه"
+          placeholder="آدرس ایمیل شما"
+        />
         <Button which="confirm" text="ثبت" importStyle={{ fontSize: "20px" }} />
       </div>
       <img src={enamadIcon} alt="enamad logo" />
