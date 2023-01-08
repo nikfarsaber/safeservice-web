@@ -16,3 +16,18 @@
 .worthiness {
   margin-bottom: 154px;
 }
+
+.text {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.safeserviceText {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  color: #50c4cf;
+  margin-bottom: 177px;
+}

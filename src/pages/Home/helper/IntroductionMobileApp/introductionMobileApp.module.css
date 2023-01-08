@@ -1,0 +1,73 @@
+.introductionMobileApp {
+  background-color: #c4c4c4;
+  display: flex;
+  justify-content: center;
+  padding: 70px;
+  position: relative;
+  margin-inline: -35px;
+}
+
+.introductionMobileApp > span {
+  top: 50px;
+  left: 100px;
+}
+
+#refForIntroduction #phoneImg {
+  width: 300px;
+}
+
+#refForIntroduction {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+img[alt="arrow-dashed-line-three"] {
+  width: 200px;
+  left: -195px;
+  top: 320px;
+}
+
+img[alt="arrow-dashed-line-two"] {
+  width: 200px;
+  right: -185px;
+  top: 300px;
+}
+
+img[alt="arrow-dashed-line-one"] {
+  width: 200px;
+  right: -185px;
+  top: -30px;
+}
+
+.text {
+  border-radius: 12px;
+  padding: 16px 18px;
+  font-size: 20px;
+  background-color: transparent;
+}
+
+.text#waranty {
+  top: -35px;
+  right: -400px;
+  border: 2px solid #5085cf;
+  direction: rtl;
+}
+
+.text#newNews {
+  left: -420px;
+  top: 580px;
+  border: 2px solid #5085cf;
+  padding-inline: 24px;
+  direction: rtl;
+}
+
+.text#bestBny {
+  right: -460px;
+  top: 450px;
+  border: 2px solid #50c4cf;
+  padding-inline: 24px;
+  direction: rtl;
+}

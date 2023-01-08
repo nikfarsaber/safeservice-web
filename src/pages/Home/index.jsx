@@ -2,6 +2,7 @@ import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
 import SlideShow from "../../component/SlideShow";
 import Worthiness from "./helper/Worthiness";
+import IntroductionMobileApp from "./helper/IntroductionMobileApp";
 
 import styles from "./home.module.css";
 
@@ -22,6 +23,12 @@ const Home = () => {
       <Header className={styles.header} />
       <SlideShow pictureRef={UrlReference} className={styles.slideShow} />
       <Worthiness className={styles.worthiness} />
+      <p className={styles.text}>
+        خرید آسان و بی‌دغدغه تلفن‌های همراه از برندهای روز دنیا با بهترین قیمت و
+        بدون واسطه با
+      </p>
+      <p className={styles.safeserviceText}>سیف سرویس</p>
+      <IntroductionMobileApp />
       <Footer />
     </div>
   );
