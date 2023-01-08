@@ -1,6 +1,7 @@
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
 import SlideShow from "../../component/SlideShow";
+import Worthiness from "./helper/Worthiness";
 
 import styles from "./home.module.css";
 
@@ -20,6 +21,7 @@ const Home = () => {
     <div className={styles.page}>
       <Header className={styles.header} />
       <SlideShow pictureRef={UrlReference} className={styles.slideShow} />
+      <Worthiness className={styles.worthiness} />
       <Footer />
     </div>
   );
