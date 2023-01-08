@@ -6,12 +6,15 @@ import styles from "./header.module.css";
 
 import logo from "../../assets/pngFolder/safeservice-logo.png";
 
-const Header = ({ marginInline }) => {
+const Header = ({ marginInline, className }) => {
   const navigate = useNavigate();
   const logInButtonHandler = () => navigate("/login-signup", { replace: true });
 
   return (
-    <header style={{ marginInline: marginInline }} className={styles.header}>
+    <header
+      style={{ marginInline: marginInline }}
+      className={`${styles.header} ${className}`}
+    >
       <div className={styles.rightSide}>
         <img className={styles.logo} src={logo} alt="safeservice logo" />
         <Button

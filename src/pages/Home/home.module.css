@@ -1,3 +1,14 @@
 .page {
   margin-top: 78px;
 }
+
+.header {
+  margin-bottom: 88px;
+  margin-inline: 70px;
+}
+
+.slideShow {
+  padding-inline: 70px;
+  height: 539px;
+  margin-bottom: 135px;
+}
