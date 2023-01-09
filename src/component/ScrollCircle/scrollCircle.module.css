@@ -1,0 +1,54 @@
+.scrollCircle {
+  border-radius: 50%;
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+}
+
+.mobileAppBlur {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+}
+
+.mobileAppBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashedBorder {
+  width: 160px;
+  height: 160px;
+}
+
+.mobileAppBoxDisplay {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+  box-shadow: 0 5px 5px 0 gainsboro;
+  cursor: pointer;
+}
+
+.mobileAppBoxDisplay > p {
+  text-align: center;
+  font-size: 10px;
+}
+
+.mobileIcon {
+  width: 25px;
+  margin-bottom: -2px;
+}

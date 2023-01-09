@@ -3,6 +3,7 @@ import Footer from "../../layout/Footer";
 import SlideShow from "../../component/SlideShow";
 import Worthiness from "./helper/Worthiness";
 import IntroductionMobileApp from "./helper/IntroductionMobileApp";
+import ScrollCircle from "../../component/ScrollCircle";
 
 import styles from "./home.module.css";
 
@@ -30,6 +31,7 @@ const Home = () => {
       <p className={styles.safeserviceText}>سیف سرویس</p>
       <IntroductionMobileApp />
       <Footer />
+      <ScrollCircle />
     </div>
   );
 };
