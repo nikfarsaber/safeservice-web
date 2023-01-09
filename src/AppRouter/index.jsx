@@ -7,6 +7,7 @@ import Trainings from "../pages/Trainings";
 import Repair from "../pages/Repair";
 import News from "../pages/News";
 import Home from "../pages/Home";
+import Authentication from "../pages/Authentication";
 
 const AppRouter = () => {
   return (
@@ -20,6 +21,8 @@ const AppRouter = () => {
         <Route path="/repair" element={<Repair />} />
         <Route path="/trainings" element={<Trainings />} />
         <Route path="/news" element={<News />} />
+        <Route path="/signin" element={<Authentication />} />
+        <Route path="/signup" element={<Authentication />} />
       </Routes>
     </BrowserRouter>
   );
