@@ -1,11 +1,12 @@
 .button {
   cursor: pointer;
+  height: 58px;
+  padding-inline: 31px;
 }
 
 .register {
   border: 2px solid #5085cf;
   border-radius: 16px;
-  padding: 22px 31px;
   background-color: transparent;
   color: #50c4cf;
   font-size: 16px;
@@ -14,7 +15,6 @@
 .confirm {
   border: 2px solid #50c4cf;
   border-radius: 16px;
-  padding: 22px 31px;
   background-color: #50c4cf;
   color: #fff;
   font-size: 16px;
