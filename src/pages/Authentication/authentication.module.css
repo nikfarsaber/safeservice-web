@@ -1,0 +1,87 @@
+.page {
+  margin-block: 143px;
+  margin-inline: auto;
+  width: 1057px;
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+
+.img {
+  width: 50%;
+  margin-left: -1px;
+  margin-bottom: -1px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.informationBox {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-inline: 83px 77px;
+}
+
+.logo {
+  width: 135px;
+  margin-right: -5px;
+  margin-block: 63px 72px;
+}
+
+label.input {
+  margin-inline-start: 20px;
+}
+
+input.input {
+  margin-bottom: 45px;
+}
+
+.passwordCheck.input {
+  margin-bottom: 16px;
+}
+
+.remainingCheck {
+  font-size: 12px;
+  color: #757575;
+  margin-bottom: 45px;
+  margin-inline-start: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.remainingCheck input {
+  margin-inline-end: 10px;
+  width: 12px;
+  height: 12px;
+}
+
+.button {
+  margin-bottom: 20px;
+}
+
+.haveAccount {
+  margin-inline-start: 20px;
+  font-size: 12px;
+  margin-bottom: 40px;
+}
+
+.goToSignin {
+  color: #50c4cf;
+  margin-inline-start: 10px;
+  text-decoration: none;
+}
+
+.dividerLine {
+  margin-bottom: 27px;
+}
+
+.socialMediaBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: #757575;
+  margin-bottom: 64px;
+}
