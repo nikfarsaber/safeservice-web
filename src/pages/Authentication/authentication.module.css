@@ -24,7 +24,16 @@
   margin-inline: 83px 77px;
 }
 
+.informationBox > * {
+  order: 3;
+}
+
+.goFirst {
+  order: 2;
+}
+
 .logo {
+  order: 1;
   width: 135px;
   margin-right: -5px;
   margin-block: 63px 72px;
@@ -71,6 +80,7 @@ input.input {
   color: #50c4cf;
   margin-inline-start: 10px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .dividerLine {
