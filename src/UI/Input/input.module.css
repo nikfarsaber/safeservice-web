@@ -3,19 +3,53 @@
   font-weight: 400;
   color: white;
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
+  position: relative;
+  width: fit-content;
 }
 
 .input {
   border: 1px solid white;
   border-radius: 20px;
-  font-size: 14px;
-  width: 347px;
-  padding-right: 30px;
-  padding-block: 26px;
+  font-size: 18px;
+  padding-inline: 30px;
+  height: 58px;
   background: transparent;
+  outline: none;
 }
 
 .input::placeholder {
   color: rgba(228, 228, 227, 0.54);
+  font-size: 14px;
+}
+
+.label.black {
+  color: black;
+}
+
+.input.black {
+  color: rgba(117, 117, 117, 1);
+  border: 1px solid black;
+}
+
+.input.black::placeholder {
+  color: rgba(117, 117, 117, 0.54);
+}
+
+.input.left {
+  direction: ltr;
+}
+
+.input.right {
+  direction: rtl;
+}
+
+.label.important::after {
+  content: "*";
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  transform: translate(-100%, -50%);
+  font-size: 24px;
+  color: #50c4cf;
 }
