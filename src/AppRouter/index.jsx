@@ -21,8 +21,7 @@ const AppRouter = () => {
         <Route path="/repair" element={<Repair />} />
         <Route path="/trainings" element={<Trainings />} />
         <Route path="/news" element={<News />} />
-        <Route path="/signin" element={<Authentication />} />
-        <Route path="/signup" element={<Authentication />} />
+        <Route path="/authentication" element={<Authentication />} />
       </Routes>
     </BrowserRouter>
   );

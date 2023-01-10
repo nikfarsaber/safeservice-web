@@ -8,7 +8,8 @@ import logo from "../../assets/pngFolder/safeservice-logo.png";
 
 const Header = ({ marginInline, className }) => {
   const navigate = useNavigate();
-  const logInButtonHandler = () => navigate("/signup", { replace: true });
+  const logInButtonHandler = () =>
+    navigate("/authentication", { replace: true });
 
   return (
     <header
