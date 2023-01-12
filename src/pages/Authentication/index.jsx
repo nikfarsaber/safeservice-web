@@ -27,6 +27,7 @@ const Authentication = () => {
             type="text"
             important={true}
             placeholder="لطفا نام و نام خانوادگی خود را وارد کنید."
+            validation={(value) => value.trim() !== ""}
           />
         )}
         <Input
@@ -61,6 +62,14 @@ const Authentication = () => {
           type="text"
           important={wantRegister}
           placeholder="09xxxxxxxxx"
+        />
+        <Input
+          direction="left"
+          className={styles.input}
+          which="black"
+          text="ایمیل"
+          type="text"
+          placeholder="nikfar.saber@gmail.com"
         />
         <Button
           className={styles.button}
