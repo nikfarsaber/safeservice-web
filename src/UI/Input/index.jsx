@@ -1,6 +1,16 @@
 import styles from "./input.module.css";
 import { useState } from "react";
 
+const checkValidation = (validationArray, inputValue) => {
+  const indexErrorValidate = validationArray.findIndex(
+    (element) => !element.validate(inputValue)
+  );
+  if (indexErrorValidate !== -1) {
+    return [false, validationArray[indexErrorValidate].errorText];
+  }
+  return [true, ""];
+};
+
 const Input = ({
   text,
   type,
@@ -9,14 +19,24 @@ const Input = ({
   className,
   important,
   direction,
-  validation = () => true,
-  errorText = "value is NOT valid",
+  submited = false,
+  validations = [
+    { validate: () => true, errorText: "مقادیر وارد شده صحیح نمی باشد" },
+  ],
 }) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [isTouched, setIsTouched] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  const valueIsValid = validation && validation(enteredValue);
+  const [valueIsValid, errorValidText] = checkValidation(
+    validations,
+    enteredValue
+  );
+
+  if (submited !== isTouched) {
+    setIsTouched(true);
+  }
+
   if (hasError !== !valueIsValid && isTouched) {
     setHasError(!valueIsValid && isTouched);
   }
@@ -46,7 +66,7 @@ const Input = ({
         placeholder={placeholder}
         value={enteredValue}
       />
-      {hasError && <p className={styles.errorText}>{errorText}</p>}
+      {hasError && <p className={styles.errorText}>{errorValidText}</p>}
     </div>
   );
 };
