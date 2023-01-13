@@ -1,3 +1,7 @@
+.inputBox {
+  position: relative;
+}
+
 .label {
   font-size: 16px;
   font-weight: 400;
@@ -14,8 +18,15 @@
   font-size: 18px;
   padding-inline: 30px;
   height: 58px;
+  width: 100%;
   background: transparent;
   outline: none;
+}
+
+.errorText {
+  color: red;
+  position: absolute;
+  bottom: -24px;
 }
 
 .input::placeholder {

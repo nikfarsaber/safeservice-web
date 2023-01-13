@@ -30,9 +30,9 @@ const Input = ({
   };
 
   return (
-    <>
+    <div className={`${styles.inputBox} ${className}`}>
       <label
-        className={`${styles[which]} ${className} ${styles.label} ${
+        className={`${styles[which]} ${styles.label} ${
           important && styles.important
         }`}
       >
@@ -41,13 +41,13 @@ const Input = ({
       <input
         onChange={valueChangeHandler}
         onBlur={inputBlurHandler}
-        className={`${styles[which]} ${className} ${styles.input} ${styles[direction]}`}
+        className={`${styles[which]} ${styles.input} ${styles[direction]}`}
         type={type}
         placeholder={placeholder}
         value={enteredValue}
       />
-      {hasError && <p>{errorText}</p>}
-    </>
+      {hasError && <p className={styles.errorText}>{errorText}</p>}
+    </div>
   );
 };
 

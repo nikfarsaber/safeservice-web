@@ -27,7 +27,8 @@ const Authentication = () => {
             type="text"
             important={true}
             placeholder="لطفا نام و نام خانوادگی خود را وارد کنید."
-            validation={(value) => value.trim() !== ""}
+            validation={(value) => value.trim().length > 3}
+            errorText="مقادیر وارد شده باید بیشتر از ۴ کارکتر باشد."
           />
         )}
         <Input
@@ -38,6 +39,8 @@ const Authentication = () => {
           type="password"
           important={wantRegister}
           placeholder="****"
+          validation={(value) => value.trim().length > 5}
+          errorText="رمز وارد شده باید بیشتر از ۶ کارکتر باشد."
         />
         {wantRegister && (
           <Input
@@ -48,6 +51,8 @@ const Authentication = () => {
             type="password"
             important={true}
             placeholder="****"
+            validation={(value) => value.trim().length > 5}
+            errorText="رمز وارد شده باید بیشتر از ۶ کارکتر باشد."
           />
         )}
         <label className={styles.remainingCheck}>
@@ -62,6 +67,10 @@ const Authentication = () => {
           type="text"
           important={wantRegister}
           placeholder="09xxxxxxxxx"
+          validation={(value) =>
+            /^(?:0|98|\+98|\+980|0098|098|00980)?(9\d{9})$/.test(value)
+          }
+          errorText="شماره تلفن وارد شده باید ۱۱ رقم باشد."
         />
         <Input
           direction="left"

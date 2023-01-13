@@ -39,11 +39,11 @@
   margin-block: 63px 72px;
 }
 
-label.input {
+.input > label {
   margin-inline-start: 20px;
 }
 
-input.input {
+.input {
   margin-bottom: 45px;
 }
 
