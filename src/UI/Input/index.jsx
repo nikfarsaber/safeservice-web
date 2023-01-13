@@ -20,6 +20,7 @@ const Input = ({
   important,
   direction,
   submited = false,
+  reset = false,
   validations = [
     { validate: () => true, errorText: "مقادیر وارد شده صحیح نمی باشد" },
   ],
@@ -27,13 +28,20 @@ const Input = ({
   const [enteredValue, setEnteredValue] = useState("");
   const [isTouched, setIsTouched] = useState(false);
   const [hasError, setHasError] = useState(false);
-
+  const [resetFlag, setResetFlag] = useState(false);
   const [valueIsValid, errorValidText] = checkValidation(
     validations,
     enteredValue
   );
 
-  if (submited !== isTouched) {
+  if (reset !== resetFlag) {
+    setEnteredValue("");
+    setResetFlag(reset);
+    setIsTouched(false);
+    setHasError(false);
+  }
+
+  if (submited !== isTouched && submited == true) {
     setIsTouched(true);
   }
 

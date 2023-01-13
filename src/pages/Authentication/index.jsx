@@ -14,6 +14,7 @@ const Authentication = () => {
   const ToggleRegister = () => {
     const updateWantRegister = !wantRegister;
     setAreRegister(updateWantRegister);
+    setFormSubmited(false);
   };
 
   const checkFormIsValid = () => {
@@ -32,6 +33,7 @@ const Authentication = () => {
             type="text"
             important={true}
             submited={formSubmited}
+            reset={wantRegister}
             placeholder="لطفا نام و نام خانوادگی خود را وارد کنید."
             validations={[
               {
@@ -53,6 +55,7 @@ const Authentication = () => {
           type="password"
           important={wantRegister}
           submited={formSubmited}
+          reset={wantRegister}
           placeholder="****"
           validations={[
             {
@@ -70,6 +73,7 @@ const Authentication = () => {
             type="password"
             important={true}
             submited={formSubmited}
+            reset={wantRegister}
             placeholder="****"
             validations={[
               {
@@ -91,20 +95,36 @@ const Authentication = () => {
           type="text"
           important={wantRegister}
           submited={formSubmited}
+          reset={wantRegister}
           placeholder="09xxxxxxxxx"
-          validations={[
-            {
-              validate: (value) =>
-                /^(?:0|98|\+98|\+980|0098|098|00980)?(9\d{9})$/.test(value),
-              errorText: "شماره تلفن وارد شده باید ۱۱ رقم باشد.",
-            },
-          ]}
+          validations={
+            wantRegister
+              ? [
+                  {
+                    validate: (value) =>
+                      /^(?:0|98|\+98|\+980|0098|098|00980)?(9\d{9})$/.test(
+                        value
+                      ),
+                    errorText: "شماره تلفن وارد شده باید ۱۱ رقم باشد.",
+                  },
+                ]
+              : [
+                  {
+                    validate: (value) =>
+                      /^(?:0|98|\+98|\+980|0098|098|00980)?(9\d{9})$/.test(
+                        value
+                      ) || /[^\s@]+@[^\s@]+\.[^\s@]+/.test(value),
+                    errorText: "شماره تماس یا ایمیل خود را وارد نمایید",
+                  },
+                ]
+          }
         />
         {wantRegister && (
           <Input
             direction="left"
             className={styles.input}
             submited={formSubmited}
+            reset={wantRegister}
             which="black"
             text="ایمیل"
             type="text"
