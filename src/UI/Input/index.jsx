@@ -1,5 +1,6 @@
 import styles from "./input.module.css";
 import { useState } from "react";
+import { EyeSlashSvg, EyeSvg } from "../../assets/SvgInput";
 
 const checkValidation = (validationArray, inputValue) => {
   const indexErrorValidate = validationArray.findIndex(
@@ -29,6 +30,7 @@ const Input = ({
   const [isTouched, setIsTouched] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [resetFlag, setResetFlag] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [valueIsValid, errorValidText] = checkValidation(
     validations,
     enteredValue
@@ -49,6 +51,10 @@ const Input = ({
     setHasError(!valueIsValid && isTouched);
   }
 
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   const valueChangeHandler = (event) => {
     setEnteredValue(event.target.value);
   };
@@ -66,14 +72,32 @@ const Input = ({
       >
         {text}
       </label>
-      <input
-        onChange={valueChangeHandler}
-        onBlur={inputBlurHandler}
-        className={`${styles[which]} ${styles.input} ${styles[direction]}`}
-        type={type}
-        placeholder={placeholder}
-        value={enteredValue}
-      />
+      <div>
+        <input
+          onChange={valueChangeHandler}
+          onBlur={inputBlurHandler}
+          className={`${styles[which]} ${styles.input} ${styles[direction]}`}
+          type={
+            type !== "password" ? { type } : showPassword ? "text" : "password"
+          }
+          placeholder={placeholder}
+          value={enteredValue}
+        />
+        {type == "password" &&
+          (showPassword ? (
+            <EyeSlashSvg
+              className={styles.eyeIcon}
+              color="#757575"
+              onClick={toggleShowPassword}
+            />
+          ) : (
+            <EyeSvg
+              className={styles.eyeIcon}
+              color="#757575"
+              onClick={toggleShowPassword}
+            />
+          ))}
+      </div>
       {hasError && <p className={styles.errorText}>{errorValidText}</p>}
     </div>
   );

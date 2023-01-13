@@ -23,6 +23,18 @@
   outline: none;
 }
 
+.input[type="password"] {
+  padding-inline-end: 60px;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 26px;
+  transform: (0, 50%);
+  top: 50%;
+  cursor: pointer;
+}
+
 .errorText {
   color: red;
   position: absolute;
