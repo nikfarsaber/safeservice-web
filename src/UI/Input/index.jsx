@@ -84,7 +84,7 @@ const Input = ({
           value={enteredValue}
         />
         {type == "password" &&
-          (showPassword ? (
+          (!showPassword ? (
             <EyeSlashSvg
               className={styles.eyeIcon}
               color="#757575"

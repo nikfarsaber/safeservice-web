@@ -12,9 +12,8 @@ const Authentication = () => {
   const [formSubmited, setFormSubmited] = useState(false);
 
   const ToggleRegister = () => {
-    const updateWantRegister = !wantRegister;
-    setAreRegister(updateWantRegister);
     setFormSubmited(false);
+    setAreRegister(!wantRegister);
   };
 
   const checkFormIsValid = () => {
@@ -104,7 +103,7 @@ const Authentication = () => {
                     validate: (value) =>
                       /^(?:0|98|\+98|\+980|0098|098|00980)?(9\d{9})$/.test(
                         value
-                      ),
+                      ) || /^[\u06F0-\u06F9]{11}/.test(value),
                     errorText: "شماره تلفن وارد شده باید ۱۱ رقم باشد.",
                   },
                 ]
@@ -114,7 +113,8 @@ const Authentication = () => {
                       /^(?:0|98|\+98|\+980|0098|098|00980)?(9\d{9})$/.test(
                         value
                       ) || /[^\s@]+@[^\s@]+\.[^\s@]+/.test(value),
-                    errorText: "شماره تماس یا ایمیل خود را وارد نمایید",
+                    errorText:
+                      "شماره تماس یا ایمیل خود را به صورت صحیح وارد نمایید",
                   },
                 ]
           }
@@ -160,7 +160,7 @@ const Authentication = () => {
       <img
         className={styles.img}
         src={
-          "https://cdn.vox-cdn.com/uploads/chorus_asset/file/24059001/226270_iPHONE_14_PHO_akrales_0788_sq.jpg"
+          "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-pro-model-unselect-gallery-2-202209_GEO_US?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1660753617560"
         }
         alt=""
       />

@@ -1,6 +1,7 @@
-export const ArowSvg = ({ color, className }) => {
+export const ArowSvg = ({ color, className, onClick }) => {
   return (
     <svg
+      onClick={onClick}
       className={className}
       width="70"
       height="70"
