@@ -1,6 +1,7 @@
 import Input from "../../UI/Input";
 import Button from "../../UI/Button";
 import SocialMediaRef from "../../component/SocialMediaRef";
+import { useNavigate } from "react-router-dom";
 
 import styles from "./authentication.module.css";
 
@@ -8,149 +9,286 @@ import logo from "../../assets/pngFolder/safeservice-logo.png";
 import { useState } from "react";
 
 const Authentication = () => {
-  const [wantRegister, setAreRegister] = useState(true);
-  const [formSubmited, setFormSubmited] = useState(false);
+  let [
+    isInputNumberValid,
+    isInputFirstNameValid,
+    isInputLastNameValid,
+    isInputPasswordValid,
+  ] = [false, false, false, false];
 
-  const ToggleRegister = () => {
-    setFormSubmited(false);
-    setAreRegister(!wantRegister);
+  let [
+    inputNumberValue,
+    inputFirstNameValue,
+    inputLastNameValue,
+    inputPasswordValue,
+  ] = [];
+
+  const navigate = useNavigate();
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [formSubmited, setFormSubmited] = useState(false);
+  const [situation, setSituation] = useState("inputPhoneNumber");
+
+  let isFormValid = false;
+
+  const submitClickHandler = () => {
+    setFormSubmited(true);
+    formValidCheck();
+    if (isFormValid) {
+      console.log("go to fetch");
+      if (situation == "inputPhoneNumber") {
+        fetch(
+          `https://safeservice.iran.liara.run/auth/request_login?phone=${inputNumberValue}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+          .then(async (response) => {
+            if (response.ok) {
+              return response;
+            } else {
+              const data = await response.json();
+              let errorMessage = "Authentication faild!";
+              if (data && data.detail) {
+                throw new Error(data.detail);
+              } else {
+                throw new Error(errorMessage);
+              }
+            }
+          })
+          .then(async (data) => {
+            console.log(await data.json());
+            setPhoneNumber(inputNumberValue);
+            setSituation("signIn");
+            setFormSubmited(false);
+            isFormValid = false;
+          })
+          .catch((error) => {
+            if (error.message == "User not found with given phone number") {
+              fetch(
+                `https://safeservice.iran.liara.run/auth/request_register?phone=${inputNumberValue}`,
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              )
+                .then(async (response) => {
+                  if (response.ok) {
+                    return response.json();
+                  } else {
+                    const data = await response.json();
+                    let errorMessage = "Authentication faild!";
+                    if (data && data.detail) {
+                      throw new Error(data.detail);
+                    } else {
+                      throw new Error(errorMessage);
+                    }
+                  }
+                })
+                .then(async () => {
+                  setPhoneNumber(inputNumberValue);
+                  setSituation("signUp");
+                  setFormSubmited(false);
+                  isFormValid = false;
+                })
+                .catch((error) => {
+                  alert(error.message);
+                });
+            } else {
+              alert(error.message);
+            }
+          });
+      } else if (situation == "signUp") {
+        console.log("sign up fetch");
+        fetch(
+          `https://safeservice.iran.liara.run/auth/register_w_otp?phone=${phoneNumber}&name=${inputFirstNameValue}&family=${inputLastNameValue}&otp_code=${inputPasswordValue}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+          .then(async (response) => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              const data = await response.json();
+              let errorMessage = "Authentication faild!";
+              if (data && data.detail) {
+                throw new Error(data.detail);
+              } else {
+                throw new Error(errorMessage);
+              }
+            }
+          })
+          .then(async (data) => {
+            console.log(data.token);
+            data.token && localStorage.setItem("userToken", data.token);
+            navigate("/Home", { replace: true });
+          })
+          .catch((error) => alert(error.message));
+        setFormSubmited(false);
+        isFormValid = false;
+      } else if (situation == "signIn") {
+        console.log("sign in fetch");
+        fetch(
+          `https://safeservice.iran.liara.run/auth/login_w_otp?phone=${phoneNumber}&otp_code=${inputPasswordValue}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+          .then(async (response) => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              const data = await response.json();
+              let errorMessage = "Authentication faild!";
+              if (data && data.detail) {
+                throw new Error(data.detail);
+              } else {
+                throw new Error(errorMessage);
+              }
+            }
+          })
+          .then(async (data) => {
+            console.log(data.token);
+            data.token && localStorage.setItem("userToken", data.token);
+            navigate("/Home", { replace: true });
+          })
+          .catch((error) => alert(error.message));
+        setFormSubmited(false);
+        isFormValid = false;
+      }
+    }
   };
 
-  const checkFormIsValid = () => {
-    setFormSubmited(true);
+  const formValidCheck = () => {
+    if (situation == "inputPhoneNumber") {
+      isFormValid = isInputNumberValid;
+    } else if (situation == "signUp") {
+      isFormValid =
+        isInputFirstNameValid && isInputLastNameValid && isInputPasswordValid;
+    } else if (situation == "signIn") {
+      isFormValid = isInputPasswordValid;
+    }
   };
 
   return (
     <div className={styles.page}>
       <div className={styles.informationBox}>
         <img src={logo} alt="safeservice logo" className={styles.logo} />
-        {wantRegister && (
+        {situation == "signUp" && (
+          <>
+            <Input
+              className={styles.input}
+              which="black"
+              text="نام"
+              type="text"
+              important={true}
+              submited={formSubmited}
+              inputValue={(value) => (inputFirstNameValue = value)}
+              isValid={(value) => {
+                isInputFirstNameValid = value;
+                formValidCheck();
+              }}
+              placeholder="لطفا نام و نام خانوادگی خود را وارد کنید."
+              validations={[
+                {
+                  validate: (value) => value.trim() !== "",
+                  errorText: "این باکس نمی تواند خالی باشد.",
+                },
+                {
+                  validate: (value) => value.trim().length > 1,
+                  errorText: "مقادیر وارد شده باید بیشتر از ۲ کارکتر باشد.",
+                },
+              ]}
+            />
+            <Input
+              className={styles.input}
+              which="black"
+              text="نام خانوادگی"
+              type="text"
+              important={true}
+              submited={formSubmited}
+              inputValue={(value) => (inputLastNameValue = value)}
+              isValid={(value) => {
+                isInputLastNameValid = value;
+                formValidCheck();
+              }}
+              placeholder="لطفا نام و نام خانوادگی خود را وارد کنید."
+              validations={[
+                {
+                  validate: (value) => value.trim() !== "",
+                  errorText: "این باکس نمی تواند خالی باشد.",
+                },
+                {
+                  validate: (value) => value.trim().length > 1,
+                  errorText: "مقادیر وارد شده باید بیشتر از ۲ کارکتر باشد.",
+                },
+              ]}
+            />
+          </>
+        )}
+        {(situation == "signIn" || situation == "signUp") && (
           <Input
             className={styles.input}
             which="black"
-            text="نام و نام خانوادگی"
+            text="رمز یکبار مصرف"
             type="text"
             important={true}
             submited={formSubmited}
-            reset={wantRegister}
-            placeholder="لطفا نام و نام خانوادگی خود را وارد کنید."
+            inputValue={(value) => (inputPasswordValue = value)}
+            isValid={(value) => {
+              isInputPasswordValid = value;
+              formValidCheck();
+            }}
             validations={[
               {
-                validate: (value) => value.trim() !== "",
-                errorText: "این باکس نمی تواند خالی باشد.",
-              },
-              {
-                validate: (value) => value.trim().length > 3,
-                errorText: "مقادیر وارد شده باید بیشتر از ۴ کارکتر باشد.",
+                validate: (value) => value.trim().length == 6,
+                errorText: "مقادیر وارد شده باید ۶ رقم باشد",
               },
             ]}
           />
         )}
-        <Input
-          direction="left"
-          className={styles.input}
-          which="black"
-          text="رمز عبور"
-          type="password"
-          important={wantRegister}
-          submited={formSubmited}
-          reset={wantRegister}
-          placeholder="****"
-          validations={[
-            {
-              validate: (value) => value.trim().length > 5,
-              errorText: "رمز وارد شده باید بیشتر از ۶ کارکتر باشد.",
-            },
-          ]}
-        />
-        {wantRegister && (
-          <Input
-            direction="left"
-            className={`${styles.input}`}
-            which="black"
-            text="تایید رمز عبور"
-            type="password"
-            important={true}
-            submited={formSubmited}
-            reset={wantRegister}
-            placeholder="****"
-            validations={[
-              {
-                validate: (value) => value.trim().length > 5,
-                errorText: "رمز وارد شده باید بیشتر از ۶ کارکتر باشد.",
-              },
-            ]}
-          />
-        )}
-        <label className={styles.remainingCheck}>
-          <input type="checkbox" />
-          مرا به خاطر بسپار
-        </label>
-        <Input
-          direction="left"
-          className={`${styles.input} ${!wantRegister && styles.goFirst}`}
-          which="black"
-          text={wantRegister ? "شماره تلفن همراه" : "شماره تلفن همراه یا ایمیل"}
-          type="text"
-          important={wantRegister}
-          submited={formSubmited}
-          reset={wantRegister}
-          placeholder="09xxxxxxxxx"
-          validations={
-            wantRegister
-              ? [
-                  {
-                    validate: (value) =>
-                      /^(?:0|98|\+98|\+980|0098|098|00980)?(9\d{9})$/.test(
-                        value
-                      ) || /^[\u06F0-\u06F9]{11}/.test(value),
-                    errorText: "شماره تلفن وارد شده باید ۱۱ رقم باشد.",
-                  },
-                ]
-              : [
-                  {
-                    validate: (value) =>
-                      /^(?:0|98|\+98|\+980|0098|098|00980)?(9\d{9})$/.test(
-                        value
-                      ) || /[^\s@]+@[^\s@]+\.[^\s@]+/.test(value),
-                    errorText:
-                      "شماره تماس یا ایمیل خود را به صورت صحیح وارد نمایید",
-                  },
-                ]
-          }
-        />
-        {wantRegister && (
+        {situation == "inputPhoneNumber" && (
           <Input
             direction="left"
             className={styles.input}
-            submited={formSubmited}
-            reset={wantRegister}
             which="black"
-            text="ایمیل"
+            text="شماره تلفن همراه"
             type="text"
-            placeholder="nikfar.saber@gmail.com"
+            important={true}
+            submited={formSubmited}
+            inputValue={(value) => (inputNumberValue = value)}
+            isValid={(value) => {
+              isInputNumberValid = value;
+              formValidCheck();
+            }}
+            placeholder="09xxxxxxxxx"
             validations={[
               {
                 validate: (value) =>
-                  /[^\s@]+@[^\s@]+\.[^\s@]+/.test(value) || value.trim() === "",
-                errorText: "فرمت مقادیر وارد شده صحیح نمی باشد",
+                  /^(?:0|98|\+98)?(9\d{9})$/.test(value) ||
+                  /^[\u06F0-\u06F9]{11}/.test(value),
+                errorText: "شماره تلفن وارد شده باید ۱۱ رقم باشد.",
               },
             ]}
           />
         )}
         <Button
           className={styles.button}
-          onClick={checkFormIsValid}
+          onClick={submitClickHandler}
           which="confirm"
-          text={wantRegister ? "ثبت نام" : "ورود"}
+          text="ورود / ثبت نام"
         />
-        <p className={styles.haveAccount}>
-          {wantRegister ? "حساب کاربری دارید؟ " : "ساختن حساب کاربری جدید"}
-          حساب کاربری دارید؟{" "}
-          <span className={styles.goToSignin} onClick={ToggleRegister}>
-            {wantRegister ? "ورود" : "ثبت نام"}
-          </span>
-        </p>
         <hr className={styles.dividerLine} />
         <div className={styles.socialMediaBox}>
           <p>شبکه های اجتماعی:</p>

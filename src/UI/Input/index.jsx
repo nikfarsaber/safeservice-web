@@ -22,6 +22,8 @@ const Input = ({
   direction,
   submited = false,
   reset = false,
+  inputValue = () => "",
+  isValid = () => true,
   validations = [
     { validate: () => true, errorText: "مقادیر وارد شده صحیح نمی باشد" },
   ],
@@ -31,10 +33,14 @@ const Input = ({
   const [hasError, setHasError] = useState(false);
   const [resetFlag, setResetFlag] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
   const [valueIsValid, errorValidText] = checkValidation(
     validations,
     enteredValue
   );
+
+  inputValue(enteredValue);
+  isValid(valueIsValid);
 
   if (reset !== resetFlag) {
     setEnteredValue("");
