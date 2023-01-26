@@ -199,7 +199,7 @@ const Authentication = () => {
                 isInputFirstNameValid = value;
                 formValidCheck();
               }}
-              placeholder="لطفا نام و نام خانوادگی خود را وارد کنید."
+              placeholder="لطفا نام خود را وارد کنید."
               validations={[
                 {
                   validate: (value) => value.trim() !== "",
@@ -223,7 +223,7 @@ const Authentication = () => {
                 isInputLastNameValid = value;
                 formValidCheck();
               }}
-              placeholder="لطفا نام و نام خانوادگی خود را وارد کنید."
+              placeholder="لطفا نام خانوادگی خود را وارد کنید."
               validations={[
                 {
                   validate: (value) => value.trim() !== "",
