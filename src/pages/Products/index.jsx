@@ -1,9 +1,9 @@
-import NavBar from "../../component/NavBar";
+import Header from "../../layout/Header";
 
 const Products = () => {
   return (
     <>
-      <NavBar />
+      <Header />
       <p>products page</p>
     </>
   );
