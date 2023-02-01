@@ -15,7 +15,6 @@ const ScrollCircle = () => {
     setRotateDeg(`rotate(${(lastKnownScrollPosition * 360) / maxScrolly}deg)`);
   });
 
-  console.log(rotateDeg);
   return (
     <div className={styles.scrollCircle}>
       <div className={styles.mobileAppBlur}></div>

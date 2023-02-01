@@ -10,8 +10,13 @@ import logo from "../../assets/pngFolder/safeservice-logo.png";
 const Header = ({ marginInline, className }) => {
   const navigate = useNavigate();
   const [isLogIn, setIsLogIn] = useState(localStorage.getItem("userToken"));
-  const logInButtonHandler = () =>
+  const logInButtonHandler = () => {
     navigate("/authentication", { replace: true });
+  };
+
+  const logoClickHandler = () => {
+    navigate("/home", { replace: true });
+  };
 
   const logOutBottonHandler = () => {
     localStorage.removeItem("userToken");
@@ -24,7 +29,12 @@ const Header = ({ marginInline, className }) => {
       className={`${styles.header} ${className}`}
     >
       <div className={styles.rightSide}>
-        <img className={styles.logo} src={logo} alt="safeservice logo" />
+        <img
+          className={styles.logo}
+          src={logo}
+          alt="safeservice logo"
+          onClick={logoClickHandler}
+        />
         {!isLogIn ? (
           <Button
             text="ورود/ثبت نام"

@@ -1,0 +1,10 @@
+.quickAccess {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+
+.quickAccess > svg {
+  width: 30px;
+  cursor: pointer;
+}

@@ -1,0 +1,16 @@
+.article {
+  margin-inline: 70px;
+}
+
+.header {
+  margin-block: 76px 104px;
+}
+
+.hr {
+  border-bottom: 1px solid #757575;
+  margin-bottom: 54px;
+}
+
+.easyAccess {
+  margin-bottom: 76px;
+}

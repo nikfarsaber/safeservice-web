@@ -1,0 +1,21 @@
+.suggestionBox {
+  display: flex;
+  align-items: center;
+  column-gap: 14px;
+}
+
+.suggestion {
+  display: flex;
+  column-gap: 17px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.suggestion > span {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.separatorLine {
+  font-size: 24px;
+}

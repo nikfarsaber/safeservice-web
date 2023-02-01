@@ -1,0 +1,20 @@
+.searchBox {
+  position: relative;
+}
+
+.input {
+  border: 2px #50c4cf solid;
+  border-radius: 20px;
+  height: 68px;
+  width: 590px;
+  padding-inline-start: 36px;
+  font-size: 16px;
+}
+
+.searchBox > svg {
+  width: 24px;
+  position: absolute;
+  top: 21px;
+  left: 36px;
+  cursor: pointer;
+}
