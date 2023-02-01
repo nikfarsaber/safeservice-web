@@ -6,12 +6,37 @@ import { useState } from "react";
 import styles from "./header.module.css";
 
 import logo from "../../assets/pngFolder/safeservice-logo.png";
+import { useEffect } from "react";
+
+const url = "https://shop-api.safeservice.ir";
 
 const Header = ({ marginInline, className }) => {
   const navigate = useNavigate();
-  const [isLogIn, setIsLogIn] = useState(localStorage.getItem("userToken"));
+  const [isLogIn, setIsLogIn] = useState(!!localStorage.getItem("userToken"));
+  const [profileDetaile, setProfileDetaile] = useState([]);
+
+  useEffect(() => {
+    if (isLogIn) {
+      fetch(`${url}/auth/me`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("userToken")}`,
+          "Content-Type": "application/json",
+        },
+      }).then(async (response) => {
+        setProfileDetaile(await response.json());
+      });
+    } else {
+      setProfileDetaile([]);
+    }
+  }, [isLogIn]);
+  console.log(profileDetaile);
+
   const logInButtonHandler = () => {
     navigate("/authentication", { replace: true });
+  };
+
+  const phoneRegisterClickHandler = () => {
+    window.location.href = "https://safeservice.shop/webpanel/verify";
   };
 
   const logoClickHandler = () => {
@@ -20,7 +45,7 @@ const Header = ({ marginInline, className }) => {
 
   const logOutBottonHandler = () => {
     localStorage.removeItem("userToken");
-    setIsLogIn("");
+    setIsLogIn(false);
   };
 
   return (
@@ -43,17 +68,18 @@ const Header = ({ marginInline, className }) => {
             onClick={logInButtonHandler}
           />
         ) : (
-          <Button
-            text="خروج از حساب کاربری"
-            which="register"
-            className={styles.loginButton}
-            onClick={logOutBottonHandler}
-          />
+          <div className={styles.profileView} onClick={logOutBottonHandler}>
+            <p>{`${profileDetaile.name} ${profileDetaile.family}`}</p>
+          </div>
         )}
         <NavBar fontSize="20px" spaceBetween="24px" />
       </div>
       <div className={styles.leftSide}>
-        <Button text="ریجستر موبایل" which="register" />
+        <Button
+          text="ریجستر موبایل"
+          which="register"
+          onClick={phoneRegisterClickHandler}
+        />
         <Button text="ثبت گارانتی" which="confirm" />
       </div>
     </header>

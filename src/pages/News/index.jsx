@@ -1,12 +1,5 @@
-import NavBar from "../../component/NavBar";
-
 const News = () => {
-  return (
-    <>
-      <NavBar />
-      <p>news page</p>
-    </>
-  );
+  window.location.href = "https://safeservice.ir/";
 };
 
 export default News;

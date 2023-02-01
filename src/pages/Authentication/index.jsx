@@ -8,6 +8,8 @@ import styles from "./authentication.module.css";
 import logo from "../../assets/pngFolder/safeservice-logo.png";
 import { useState } from "react";
 
+const url = "https://shop-api.safeservice.ir";
+
 const Authentication = () => {
   let [
     isInputNumberValid,
@@ -36,15 +38,12 @@ const Authentication = () => {
     if (isFormValid) {
       console.log("go to fetch");
       if (situation == "inputPhoneNumber") {
-        fetch(
-          `https://safeservice.iran.liara.run/auth/request_login?phone=${inputNumberValue}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
+        fetch(`${url}/auth/request_login?phone=${inputNumberValue}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
           .then(async (response) => {
             if (response.ok) {
               return response;
@@ -67,15 +66,12 @@ const Authentication = () => {
           })
           .catch((error) => {
             if (error.message == "User not found with given phone number") {
-              fetch(
-                `https://safeservice.iran.liara.run/auth/request_register?phone=${inputNumberValue}`,
-                {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                }
-              )
+              fetch(`${url}/auth/request_register?phone=${inputNumberValue}`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              })
                 .then(async (response) => {
                   if (response.ok) {
                     return response.json();
@@ -105,7 +101,7 @@ const Authentication = () => {
       } else if (situation == "signUp") {
         console.log("sign up fetch");
         fetch(
-          `https://safeservice.iran.liara.run/auth/register_w_otp?phone=${phoneNumber}&name=${inputFirstNameValue}&family=${inputLastNameValue}&otp_code=${inputPasswordValue}`,
+          `${url}/auth/register_w_otp?phone=${phoneNumber}&name=${inputFirstNameValue}&family=${inputLastNameValue}&otp_code=${inputPasswordValue}`,
           {
             method: "POST",
             headers: {
@@ -137,7 +133,7 @@ const Authentication = () => {
       } else if (situation == "signIn") {
         console.log("sign in fetch");
         fetch(
-          `https://safeservice.iran.liara.run/auth/login_w_otp?phone=${phoneNumber}&otp_code=${inputPasswordValue}`,
+          `${url}/auth/login_w_otp?phone=${phoneNumber}&otp_code=${inputPasswordValue}`,
           {
             method: "POST",
             headers: {
