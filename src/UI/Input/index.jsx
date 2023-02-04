@@ -49,7 +49,7 @@ const Input = ({
     setHasError(false);
   }
 
-  if (submited !== isTouched && submited == true) {
+  if (submited !== isTouched && submited === true) {
     setIsTouched(true);
   }
 
@@ -89,7 +89,7 @@ const Input = ({
           placeholder={placeholder}
           value={enteredValue}
         />
-        {type == "password" &&
+        {type === "password" &&
           (!showPassword ? (
             <EyeSlashSvg
               className={styles.eyeIcon}

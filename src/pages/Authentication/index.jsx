@@ -1,6 +1,8 @@
 import Input from "../../UI/Input";
 import Button from "../../UI/Button";
 import SocialMediaRef from "../../component/SocialMediaRef";
+import { AuthenticationByNumber } from "../../redux/services/authentication";
+
 import { useNavigate } from "react-router-dom";
 
 import styles from "./authentication.module.css";
@@ -37,7 +39,19 @@ const Authentication = () => {
     formValidCheck();
     if (isFormValid) {
       console.log("go to fetch");
-      if (situation == "inputPhoneNumber") {
+      if (situation === "inputPhoneNumber") {
+        const { data, error, isLoading } =
+          AuthenticationByNumber(inputNumberValue);
+      }
+    }
+  };
+
+  const submitClickHandler_ = () => {
+    setFormSubmited(true);
+    formValidCheck();
+    if (isFormValid) {
+      console.log("go to fetch");
+      if (situation === "inputPhoneNumber") {
         fetch(`${url}/auth/request_login?phone=${inputNumberValue}`, {
           method: "POST",
           headers: {
@@ -65,7 +79,7 @@ const Authentication = () => {
             isFormValid = false;
           })
           .catch((error) => {
-            if (error.message == "User not found with given phone number") {
+            if (error.message === "User not found with given phone number") {
               fetch(`${url}/auth/request_register?phone=${inputNumberValue}`, {
                 method: "POST",
                 headers: {
@@ -98,7 +112,7 @@ const Authentication = () => {
               alert(error.message);
             }
           });
-      } else if (situation == "signUp") {
+      } else if (situation === "signUp") {
         console.log("sign up fetch");
         fetch(
           `${url}/auth/register_w_otp?phone=${phoneNumber}&name=${inputFirstNameValue}&family=${inputLastNameValue}&otp_code=${inputPasswordValue}`,
@@ -130,7 +144,7 @@ const Authentication = () => {
           .catch((error) => alert(error.message));
         setFormSubmited(false);
         isFormValid = false;
-      } else if (situation == "signIn") {
+      } else if (situation === "signIn") {
         console.log("sign in fetch");
         fetch(
           `${url}/auth/login_w_otp?phone=${phoneNumber}&otp_code=${inputPasswordValue}`,
@@ -167,12 +181,12 @@ const Authentication = () => {
   };
 
   const formValidCheck = () => {
-    if (situation == "inputPhoneNumber") {
+    if (situation === "inputPhoneNumber") {
       isFormValid = isInputNumberValid;
-    } else if (situation == "signUp") {
+    } else if (situation === "signUp") {
       isFormValid =
         isInputFirstNameValid && isInputLastNameValid && isInputPasswordValid;
-    } else if (situation == "signIn") {
+    } else if (situation === "signIn") {
       isFormValid = isInputPasswordValid;
     }
   };
@@ -181,7 +195,7 @@ const Authentication = () => {
     <div className={styles.page}>
       <div className={styles.informationBox}>
         <img src={logo} alt="safeservice logo" className={styles.logo} />
-        {situation == "signUp" && (
+        {situation === "signUp" && (
           <>
             <Input
               className={styles.input}
@@ -233,7 +247,7 @@ const Authentication = () => {
             />
           </>
         )}
-        {(situation == "signIn" || situation == "signUp") && (
+        {(situation === "signIn" || situation === "signUp") && (
           <Input
             className={styles.input}
             which="black"
@@ -248,13 +262,13 @@ const Authentication = () => {
             }}
             validations={[
               {
-                validate: (value) => value.trim().length == 6,
+                validate: (value) => value.trim().length === 6,
                 errorText: "مقادیر وارد شده باید ۶ رقم باشد",
               },
             ]}
           />
         )}
-        {situation == "inputPhoneNumber" && (
+        {situation === "inputPhoneNumber" && (
           <Input
             direction="left"
             className={styles.input}

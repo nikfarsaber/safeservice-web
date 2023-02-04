@@ -1,35 +1,34 @@
 import NavBar from "../../component/NavBar";
 import Button from "../../UI/Button";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import styles from "./header.module.css";
 
 import logo from "../../assets/pngFolder/safeservice-logo.png";
-import { useEffect } from "react";
 
 const url = "https://shop-api.safeservice.ir";
 
 const Header = ({ marginInline, className }) => {
+  let isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const navigate = useNavigate();
-  const [isLogIn, setIsLogIn] = useState(!!localStorage.getItem("userToken"));
-  const [profileDetaile, setProfileDetaile] = useState([]);
+  const dispatch = useDispatch();
+  console.log(isLoggedIn);
 
-  useEffect(() => {
-    if (isLogIn) {
-      fetch(`${url}/auth/me`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("userToken")}`,
-          "Content-Type": "application/json",
-        },
-      }).then(async (response) => {
-        setProfileDetaile(await response.json());
-      });
-    } else {
-      setProfileDetaile([]);
-    }
-  }, [isLogIn]);
-  console.log(profileDetaile);
+  // useEffect(() => {
+  //   if (isLogIn) {
+  //     fetch(`${url}/auth/me`, {
+  //       headers: {
+  //         Authorization: `Bearer ${localStorage.getItem("userToken")}`,
+  //         "Content-Type": "application/json",
+  //       },
+  //     }).then(async (response) => {
+  //       setProfileDetaile(await response.json());
+  //     });
+  //   } else {
+  //     setProfileDetaile([]);
+  //   }
+  // }, [isLogIn]);
 
   const logInButtonHandler = () => {
     navigate("/authentication", { replace: true });
@@ -44,8 +43,7 @@ const Header = ({ marginInline, className }) => {
   };
 
   const logOutBottonHandler = () => {
-    localStorage.removeItem("userToken");
-    setIsLogIn(false);
+    navigate("/profile", { replace: true });
   };
 
   return (
@@ -60,7 +58,7 @@ const Header = ({ marginInline, className }) => {
           alt="safeservice logo"
           onClick={logoClickHandler}
         />
-        {!isLogIn ? (
+        {!isLoggedIn ? (
           <Button
             text="ورود/ثبت نام"
             which="register"
@@ -69,7 +67,7 @@ const Header = ({ marginInline, className }) => {
           />
         ) : (
           <div className={styles.profileView} onClick={logOutBottonHandler}>
-            <p>{`${profileDetaile.name} ${profileDetaile.family}`}</p>
+            <p>hi</p>
           </div>
         )}
         <NavBar fontSize="20px" spaceBetween="24px" />

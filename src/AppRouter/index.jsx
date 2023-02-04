@@ -8,6 +8,7 @@ import Repair from "../pages/Repair";
 import News from "../pages/News";
 import Home from "../pages/Home";
 import Authentication from "../pages/Authentication";
+import Profile from "../pages/Profie";
 
 const AppRouter = () => {
   return (
@@ -22,6 +23,7 @@ const AppRouter = () => {
         <Route path="/trainings" element={<Trainings />} />
         <Route path="/news" element={<News />} />
         <Route path="/authentication" element={<Authentication />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );
