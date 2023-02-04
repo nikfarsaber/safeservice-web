@@ -34,7 +34,7 @@ const Authentication = () => {
 
   let isFormValid = false;
 
-  const submitClickHandler = () => {
+  const submitClickHandler_ = () => {
     setFormSubmited(true);
     formValidCheck();
     if (isFormValid) {
@@ -46,7 +46,7 @@ const Authentication = () => {
     }
   };
 
-  const submitClickHandler_ = () => {
+  const submitClickHandler = () => {
     setFormSubmited(true);
     formValidCheck();
     if (isFormValid) {
