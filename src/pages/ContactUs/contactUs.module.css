@@ -1,0 +1,73 @@
+.page {
+  margin-top: 76px;
+}
+
+.header {
+  margin-bottom: 76px;
+  margin-inline: 70px;
+}
+
+.boarderBox {
+  margin-inline: 180px 133px;
+  display: flex;
+  border: 1px solid #d9d9d9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+}
+
+.applyingBox {
+  flex: 3 1 0;
+  border-left: 2px solid #50c4cf;
+  padding-inline: 83px 77px;
+  display: flex;
+  flex-direction: column;
+  padding-block: 64px;
+}
+
+.applyingBox > h3 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 68px;
+}
+
+.input > label {
+  margin-inline-start: 20px;
+}
+
+.input {
+  margin-bottom: 45px;
+}
+
+.addressBox {
+  flex: 6 1 0;
+  display: flex;
+  flex-direction: column;
+  padding-inline: 57px 42px;
+  margin-bottom: 65px;
+}
+
+.addressBox li {
+  font-size: 20px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  column-gap: 29px;
+  margin-bottom: 45px;
+}
+
+.pageTypic {
+  align-self: center;
+  padding-bottom: 14px;
+  margin-block: 65px;
+  margin-right: 67px;
+  font-size: 24px;
+  font-weight: 400;
+  border-bottom: solid 4px #50c4cf;
+}
+
+.image {
+  width: 100%;
+  border-radius: 15px;
+  cursor: pointer;
+}

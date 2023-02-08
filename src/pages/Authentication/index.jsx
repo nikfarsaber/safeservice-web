@@ -1,14 +1,19 @@
 import Input from "../../UI/Input";
 import Button from "../../UI/Button";
 import SocialMediaRef from "../../component/SocialMediaRef";
-import { AuthenticationByNumber } from "../../redux/services/authentication";
+import {
+  useRegisterByPhoneNumberMutation,
+  useLoginByPhoneNumberMutation,
+  useLoginByOtpMutation,
+  useRegisterByOtpMutation,
+} from "../../redux/services/authenticationApi";
 
 import { useNavigate } from "react-router-dom";
 
 import styles from "./authentication.module.css";
 
 import logo from "../../assets/pngFolder/safeservice-logo.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const url = "https://shop-api.safeservice.ir";
 
@@ -27,6 +32,19 @@ const Authentication = () => {
     inputPasswordValue,
   ] = [];
 
+  const [
+    inputNumberInTrigger,
+    { data: logInNumberData, error: logInNumberError, isLoading },
+  ] = useLoginByPhoneNumberMutation();
+
+  const [sinUpNumberTrigger, { data: signUpNumberData }] =
+    useRegisterByPhoneNumberMutation();
+
+  const [logInTrigger, { data: logInData, error: logInError }] =
+    useLoginByOtpMutation();
+
+  const [registerTrigger, { data: registerData }] = useRegisterByOtpMutation();
+
   const navigate = useNavigate();
   const [phoneNumber, setPhoneNumber] = useState("");
   const [formSubmited, setFormSubmited] = useState(false);
@@ -34,148 +52,58 @@ const Authentication = () => {
 
   let isFormValid = false;
 
-  const submitClickHandler_ = () => {
-    setFormSubmited(true);
-    formValidCheck();
-    if (isFormValid) {
-      console.log("go to fetch");
-      if (situation === "inputPhoneNumber") {
-        const { data, error, isLoading } =
-          AuthenticationByNumber(inputNumberValue);
+  useEffect(() => {
+    if (logInNumberError?.status === 404) {
+      if (isFormValid) {
+        if (situation === "inputPhoneNumber") {
+          console.log("go to signUp");
+          sinUpNumberTrigger(inputNumberValue);
+        }
       }
     }
-  };
+
+    if (logInNumberData || signUpNumberData) {
+      console.log(logInNumberData, signUpNumberData);
+      setPhoneNumber(inputNumberValue);
+      setSituation(logInNumberData ? "signIn" : "signUp");
+      setFormSubmited(false);
+      isFormValid = false;
+    }
+
+    if (logInData || registerData) {
+      console.log(logInData, registerData);
+      console.log(logInData.token);
+      const data = logInData || registerData;
+      data.token && localStorage.setItem("userToken", data.token);
+      navigate("/Home", { replace: true });
+    }
+  }, [
+    logInNumberError,
+    logInNumberData,
+    signUpNumberData,
+    registerData,
+    logInData,
+  ]);
 
   const submitClickHandler = () => {
     setFormSubmited(true);
     formValidCheck();
     if (isFormValid) {
-      console.log("go to fetch");
+      console.log("go to signIn");
       if (situation === "inputPhoneNumber") {
-        fetch(`${url}/auth/request_login?phone=${inputNumberValue}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then(async (response) => {
-            if (response.ok) {
-              return response;
-            } else {
-              const data = await response.json();
-              let errorMessage = "Authentication faild!";
-              if (data && data.detail) {
-                throw new Error(data.detail);
-              } else {
-                throw new Error(errorMessage);
-              }
-            }
-          })
-          .then(async (data) => {
-            console.log(await data.json());
-            setPhoneNumber(inputNumberValue);
-            setSituation("signIn");
-            setFormSubmited(false);
-            isFormValid = false;
-          })
-          .catch((error) => {
-            if (error.message === "User not found with given phone number") {
-              fetch(`${url}/auth/request_register?phone=${inputNumberValue}`, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              })
-                .then(async (response) => {
-                  if (response.ok) {
-                    return response.json();
-                  } else {
-                    const data = await response.json();
-                    let errorMessage = "Authentication faild!";
-                    if (data && data.detail) {
-                      throw new Error(data.detail);
-                    } else {
-                      throw new Error(errorMessage);
-                    }
-                  }
-                })
-                .then(async () => {
-                  setPhoneNumber(inputNumberValue);
-                  setSituation("signUp");
-                  setFormSubmited(false);
-                  isFormValid = false;
-                })
-                .catch((error) => {
-                  alert(error.message);
-                });
-            } else {
-              alert(error.message);
-            }
-          });
-      } else if (situation === "signUp") {
-        console.log("sign up fetch");
-        fetch(
-          `${url}/auth/register_w_otp?phone=${phoneNumber}&name=${inputFirstNameValue}&family=${inputLastNameValue}&otp_code=${inputPasswordValue}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-          .then(async (response) => {
-            if (response.ok) {
-              return response.json();
-            } else {
-              const data = await response.json();
-              let errorMessage = "Authentication faild!";
-              if (data && data.detail) {
-                throw new Error(data.detail);
-              } else {
-                throw new Error(errorMessage);
-              }
-            }
-          })
-          .then(async (data) => {
-            console.log(data.token);
-            data.token && localStorage.setItem("userToken", data.token);
-            navigate("/Home", { replace: true });
-          })
-          .catch((error) => alert(error.message));
-        setFormSubmited(false);
-        isFormValid = false;
+        inputNumberInTrigger(inputNumberValue);
       } else if (situation === "signIn") {
-        console.log("sign in fetch");
-        fetch(
-          `${url}/auth/login_w_otp?phone=${phoneNumber}&otp_code=${inputPasswordValue}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-          .then(async (response) => {
-            if (response.ok) {
-              return response.json();
-            } else {
-              const data = await response.json();
-              let errorMessage = "Authentication faild!";
-              if (data && data.detail) {
-                throw new Error(data.detail);
-              } else {
-                throw new Error(errorMessage);
-              }
-            }
-          })
-          .then(async (data) => {
-            console.log(data.token);
-            data.token && localStorage.setItem("userToken", data.token);
-            navigate("/Home", { replace: true });
-          })
-          .catch((error) => alert(error.message));
-        setFormSubmited(false);
-        isFormValid = false;
+        logInTrigger({
+          phoneNumber,
+          otpNumber: inputPasswordValue,
+        });
+      } else if (situation === "signUp") {
+        registerTrigger({
+          phoneNumber,
+          otpNumber: inputPasswordValue,
+          name: inputFirstNameValue,
+          family: inputLastNameValue,
+        });
       }
     }
   };
