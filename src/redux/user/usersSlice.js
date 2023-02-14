@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const userToken = localStorage.getItem("userToken");
+
 const initialState = {
-  isLoggedIn: !!localStorage.getItem("userToken"),
-  userShortDetile: {},
+  isLoggedIn: !!userToken,
+  userShortDetile: "",
 };
 
 export const userSlice = createSlice({
@@ -15,8 +17,8 @@ export const userSlice = createSlice({
     logOut: (state) => {
       state.isLoggedIn = false;
     },
-    getUserDetail: (state, action) => {
-      state.userShortDetile.name = action.payload.name;
+    getUserDetail: (state, actions) => {
+      state.userShortDetile = actions.payload;
     },
   },
 });

@@ -41,6 +41,25 @@ export const authenticationApi = createApi({
         };
       },
     }),
+
+    getUserShortDetail: builder.query({
+      query: (token) => {
+        return {
+          url: `me`,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+      },
+    }),
+
+    getUserDetail: builder.query({
+      query: ({ token, userId }) => {
+        return {
+          url: ``,
+        };
+      },
+    }),
   }),
 });
 
@@ -49,4 +68,5 @@ export const {
   useLoginByPhoneNumberMutation,
   useLoginByOtpMutation,
   useRegisterByOtpMutation,
+  useGetUserShortDetailQuery,
 } = authenticationApi;

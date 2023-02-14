@@ -9,7 +9,6 @@ import {
 } from "../../redux/services/authenticationApi";
 
 import { useNavigate } from "react-router-dom";
-
 import styles from "./authentication.module.css";
 
 import logo from "../../assets/pngFolder/safeservice-logo.png";
@@ -44,7 +43,6 @@ const Authentication = () => {
     useLoginByOtpMutation();
 
   const [registerTrigger, { data: registerData }] = useRegisterByOtpMutation();
-
   const navigate = useNavigate();
   const [phoneNumber, setPhoneNumber] = useState("");
   const [formSubmited, setFormSubmited] = useState(false);
