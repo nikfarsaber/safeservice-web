@@ -52,14 +52,6 @@ export const authenticationApi = createApi({
         };
       },
     }),
-
-    getUserDetail: builder.query({
-      query: ({ token, userId }) => {
-        return {
-          url: ``,
-        };
-      },
-    }),
   }),
 });
 

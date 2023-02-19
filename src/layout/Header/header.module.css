@@ -22,3 +22,21 @@
 .loginButton {
   margin-inline: 49px 36px;
 }
+
+.profileView {
+  margin-inline: 45px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.profileView > p {
+  font-size: 20px;
+  color: #5085cf;
+}
+
+.profileImg {
+  width: 46px;
+  height: 46px;
+  margin-left: 12px;
+}

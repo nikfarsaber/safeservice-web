@@ -7,7 +7,9 @@ import {
   useLoginByOtpMutation,
   useRegisterByOtpMutation,
 } from "../../redux/services/authenticationApi";
+import { logIn } from "../../redux/user/usersSlice";
 
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styles from "./authentication.module.css";
 
@@ -30,6 +32,8 @@ const Authentication = () => {
     inputLastNameValue,
     inputPasswordValue,
   ] = [];
+
+  const dispatch = useDispatch();
 
   const [
     inputNumberInTrigger,
@@ -73,6 +77,7 @@ const Authentication = () => {
       console.log(logInData.token);
       const data = logInData || registerData;
       data.token && localStorage.setItem("userToken", data.token);
+      dispatch(logIn());
       navigate("/Home", { replace: true });
     }
   }, [

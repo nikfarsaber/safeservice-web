@@ -6,13 +6,23 @@ import { useSelector } from "react-redux";
 import styles from "./header.module.css";
 
 import logo from "../../assets/pngFolder/safeservice-logo.png";
-
-const url = "https://shop-api.safeservice.ir";
+import { IconProfile } from "../../assets/SvgInput";
+import { useEffect, useState } from "react";
 
 const Header = ({ marginInline, className }) => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const userShortDetail = useSelector((state) => state.user.userShortDetile);
   const navigate = useNavigate();
+
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    if (userShortDetail) {
+      setUserName(userShortDetail.name + " " + userShortDetail.family);
+    } else {
+      setUserName("loading...");
+    }
+  }, [userShortDetail, isLoggedIn]);
 
   const logInButtonHandler = () => {
     navigate("/authentication", { replace: true });
@@ -51,7 +61,8 @@ const Header = ({ marginInline, className }) => {
           />
         ) : (
           <div className={styles.profileView} onClick={logOutBottonHandler}>
-            <p>{`${userShortDetail.name} ${userShortDetail.family}`}</p>
+            <IconProfile className={styles.profileImg} color="black" />
+            <p>{userName}</p>
           </div>
         )}
         <NavBar fontSize="20px" spaceBetween="24px" />
