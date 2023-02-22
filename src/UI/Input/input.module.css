@@ -59,6 +59,10 @@
   color: rgba(117, 117, 117, 0.54);
 }
 
+.input.black:disabled {
+  background-color: #f4f4f4;
+}
+
 .input.left {
   direction: ltr;
 }

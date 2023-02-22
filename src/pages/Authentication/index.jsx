@@ -16,8 +16,6 @@ import styles from "./authentication.module.css";
 import logo from "../../assets/pngFolder/safeservice-logo.png";
 import { useEffect, useState } from "react";
 
-const url = "https://shop-api.safeservice.ir";
-
 const Authentication = () => {
   let [
     isInputNumberValid,
@@ -37,14 +35,13 @@ const Authentication = () => {
 
   const [
     inputNumberInTrigger,
-    { data: logInNumberData, error: logInNumberError, isLoading },
+    { data: logInNumberData, error: logInNumberError },
   ] = useLoginByPhoneNumberMutation();
 
   const [sinUpNumberTrigger, { data: signUpNumberData }] =
     useRegisterByPhoneNumberMutation();
 
-  const [logInTrigger, { data: logInData, error: logInError }] =
-    useLoginByOtpMutation();
+  const [logInTrigger, { data: logInData }] = useLoginByOtpMutation();
 
   const [registerTrigger, { data: registerData }] = useRegisterByOtpMutation();
   const navigate = useNavigate();
@@ -65,16 +62,13 @@ const Authentication = () => {
     }
 
     if (logInNumberData || signUpNumberData) {
-      console.log(logInNumberData, signUpNumberData);
       setPhoneNumber(inputNumberValue);
       setSituation(logInNumberData ? "signIn" : "signUp");
       setFormSubmited(false);
-      isFormValid = false;
+      // isFormValid = false;
     }
 
     if (logInData || registerData) {
-      console.log(logInData, registerData);
-      console.log(logInData.token);
       const data = logInData || registerData;
       data.token && localStorage.setItem("userToken", data.token);
       dispatch(logIn());
@@ -86,10 +80,16 @@ const Authentication = () => {
     signUpNumberData,
     registerData,
     logInData,
+    dispatch,
+    inputNumberValue,
+    isFormValid,
+    navigate,
+    situation,
+    sinUpNumberTrigger,
   ]);
 
   const submitClickHandler = () => {
-    setFormSubmited(true);
+    !formSubmited && setFormSubmited(true);
     formValidCheck();
     if (isFormValid) {
       console.log("go to signIn");

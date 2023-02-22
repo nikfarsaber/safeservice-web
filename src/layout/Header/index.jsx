@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 import styles from "./header.module.css";
 
+import profileBlank from "../../assets/pngFolder/profileBlank.png";
 import logo from "../../assets/pngFolder/safeservice-logo.png";
 import { IconProfile } from "../../assets/SvgInput";
 import { useEffect, useState } from "react";
@@ -61,7 +62,11 @@ const Header = ({ marginInline, className }) => {
           />
         ) : (
           <div className={styles.profileView} onClick={logOutBottonHandler}>
-            <IconProfile className={styles.profileImg} color="black" />
+            <img
+              src={profileBlank}
+              alt="blanked profile"
+              className={styles.profileImg}
+            />
             <p>{userName}</p>
           </div>
         )}

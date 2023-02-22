@@ -1,5 +1,5 @@
 import styles from "./input.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { EyeSlashSvg, EyeSvg } from "../../assets/SvgInput";
 
 const checkValidation = (validationArray, inputValue) => {
@@ -13,14 +13,17 @@ const checkValidation = (validationArray, inputValue) => {
 };
 
 const Input = ({
+  value = "",
   text,
   type,
   placeholder,
-  which,
+  which = "black",
   className,
   important,
   direction,
   submited = false,
+  inputEnabled = true,
+  onChange,
   reset = false,
   inputValue = () => "",
   isValid = () => true,
@@ -39,8 +42,12 @@ const Input = ({
     enteredValue
   );
 
-  inputValue(enteredValue);
   isValid(valueIsValid);
+
+  useEffect(() => {
+    setEnteredValue(value);
+    inputValue(value);
+  }, [value, inputValue]);
 
   if (reset !== resetFlag) {
     setEnteredValue("");
@@ -63,6 +70,10 @@ const Input = ({
 
   const valueChangeHandler = (event) => {
     setEnteredValue(event.target.value);
+    inputValue(event.target.value);
+    if (onChange) {
+      onChange(event);
+    }
   };
 
   const inputBlurHandler = () => {
@@ -88,6 +99,7 @@ const Input = ({
           }
           placeholder={placeholder}
           value={enteredValue}
+          disabled={!inputEnabled}
         />
         {type === "password" &&
           (!showPassword ? (
