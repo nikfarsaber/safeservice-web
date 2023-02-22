@@ -18,6 +18,7 @@ import {
 } from "../../assets/SvgInput";
 import ProfileDetail from "./helper/ProfileDetail";
 import MyDevice from "./helper/MyDevice";
+import MyPurchases from "./helper/MyPurchases";
 
 const Profile = () => {
   const params = useParams();
@@ -113,7 +114,7 @@ const Profile = () => {
             {situation === "" && <ProfileDetail />}
             {situation === "profile-list-option-my-device" && <MyDevice />}
             {situation === "profile-list-option-my-purchases" && (
-              <div>My Purchases </div>
+              <MyPurchases />
             )}
           </div>
         </div>
