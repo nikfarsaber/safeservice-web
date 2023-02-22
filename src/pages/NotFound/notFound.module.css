@@ -1,0 +1,29 @@
+.notFound {
+  direction: ltr;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.notFound * {
+  direction: ltr;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.notFound h1 {
+  font-size: 64px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.notFound p {
+  font-size: 32px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.goToHome {
+  cursor: pointer;
+  text-decoration: underline;
+  color: blue;
+}
