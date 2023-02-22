@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import Welcome from "../pages/welcome";
@@ -11,6 +11,7 @@ import News from "../pages/News";
 import Home from "../pages/Home";
 import Authentication from "../pages/Authentication";
 import Profile from "../pages/Profie";
+import NotFound from "../pages/NotFound";
 
 const AppRouter = () => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
@@ -29,8 +30,26 @@ const AppRouter = () => {
         {!isLoggedIn && (
           <Route path="/authentication" element={<Authentication />} />
         )}
+        {!isLoggedIn && (
+          <Route path="/authentication" element={<Authentication />} />
+        )}
+        {isLoggedIn && (
+          <Route path="/authentication" element={<Navigate to="/profile" />} />
+        )}
+        {!isLoggedIn && (
+          <Route path="/profile" element={<Navigate to="/authentication" />} />
+        )}
+        {!isLoggedIn && (
+          <Route
+            path="/profile/:situation"
+            element={<Navigate to="/authentication" />}
+          />
+        )}
         {isLoggedIn && <Route path="/profile" element={<Profile />} />}
-        <Route path="*" element={<Home />} />
+        {isLoggedIn && (
+          <Route path="/profile/:situation" element={<Profile />} />
+        )}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
