@@ -22,6 +22,17 @@ export const profileApi = createApi({
         }
       },
     }),
+
+    setUserDetail: builder.mutation({
+      query: ({ token, userId, userDetail }) => {
+        return {
+          url: `get/${userId}`,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+      },
+    }),
   }),
 });
 
