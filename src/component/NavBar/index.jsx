@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./navBar.module.css";
 
-const NavBar = ({ fontSize = "24px", spaceBetween = "38px" }) => {
+const NavBar = ({ fontSize = "2.4rem", spaceBetween = "3.8rem" }) => {
   const navBarObject = [
     {
       name: "about-us",

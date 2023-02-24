@@ -1,31 +1,31 @@
 .worthiness {
   display: flex;
   justify-content: center;
-  column-gap: 46px;
+  column-gap: 4.6rem;
 }
 
 .WorthinessItem {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 39px;
+  row-gap: 3.9rem;
 }
 
 .WorthinessItem > p {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 400;
 }
 
 .border {
   border-radius: 50%;
   border: 2px solid #5085cf;
-  width: 141px;
-  height: 141px;
+  width: 14.1rem;
+  height: 14.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .worthinessicon {
-  height: 84px;
+  height: 8.4rem;
 }

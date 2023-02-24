@@ -70,7 +70,7 @@ const Header = ({ marginInline, className }) => {
             <p>{userName}</p>
           </div>
         )}
-        <NavBar fontSize="20px" spaceBetween="24px" />
+        <NavBar fontSize="2rem" spaceBetween="2.4rem" />
       </div>
       <div className={styles.leftSide}>
         <Button

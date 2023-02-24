@@ -3,47 +3,65 @@
 }
 
 .label {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
   color: white;
   display: block;
-  margin-bottom: 14px;
+  margin-bottom: 1.4rem;
   position: relative;
   width: fit-content;
 }
 
 .input {
   border: 1px solid white;
-  border-radius: 20px;
-  font-size: 18px;
-  padding-inline: 30px;
-  height: 58px;
+  border-radius: 2rem;
+  font-size: 1.8rem;
+  padding-inline: 3rem;
+  height: 5.8rem;
   width: 100%;
   background: transparent;
   outline: none;
 }
 
+.select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
 .input[type="password"] {
-  padding-inline-end: 60px;
+  padding-inline-end: 6rem;
 }
 
 .eyeIcon {
   position: absolute;
-  right: 26px;
+  right: 2.6rem;
   transform: (0, 50%);
   top: 50%;
   cursor: pointer;
 }
 
+.arrowIcon {
+  cursor: pointer;
+  position: absolute;
+  width: 3rem;
+  height: 1.6rem;
+  left: 2.6rem;
+  top: 60%;
+  z-index: 0;
+}
+
 .errorText {
   color: red;
   position: absolute;
-  bottom: -24px;
+  bottom: -2.4rem;
 }
 
 .input::placeholder {
   color: rgba(228, 228, 227, 0.54);
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 .label.black {
@@ -77,6 +95,6 @@
   left: -4px;
   top: -4px;
   transform: translate(-100%, -50%);
-  font-size: 24px;
+  font-size: 2.4rem;
   color: #50c4cf;
 }

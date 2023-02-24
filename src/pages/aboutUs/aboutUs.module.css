@@ -1,17 +1,17 @@
 .page {
-  margin-top: 76px;
+  margin-top: 7.6rem;
 }
 
 .header {
-  margin-bottom: 111px;
-  margin-inline: 70px;
+  margin-bottom: 11.1rem;
+  margin-inline: 7rem;
 }
 
 .article {
-  margin: 70px;
-  font-size: 20px;
+  margin: 7rem;
+  font-size: 2rem;
   font-weight: 400;
-  line-height: 40px;
+  line-height: 4rem;
   display: flex;
   justify-content: flex-end;
 }
@@ -45,8 +45,8 @@
   grid-row-start: 2;
   grid-row-end: 3;
   align-self: flex-end;
-  padding-inline: 67px;
-  padding-top: 63px;
+  padding-inline: 6.7rem;
+  padding-top: 6.3rem;
 }
 
 .downText {
@@ -54,7 +54,7 @@
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 4;
-  padding: 67px;
+  padding: 6.7rem;
 }
 
 .backGround {
@@ -63,7 +63,7 @@
   grid-column-end: 1;
   grid-row-start: 2;
   grid-row-end: 4;
-  border-radius: 10px;
+  border-radius: 1rem;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -74,10 +74,10 @@
   grid-row-end: 2;
   align-self: flex-end;
   justify-self: flex-end;
-  padding-bottom: 14px;
-  margin-bottom: 43px;
-  margin-right: 67px;
-  font-size: 24px;
+  padding-bottom: 1.4rem;
+  margin-bottom: 4.3rem;
+  margin-right: 6.7rem;
+  font-size: 2.4rem;
   font-weight: 400;
   border-bottom: solid 4px #50c4cf;
 }

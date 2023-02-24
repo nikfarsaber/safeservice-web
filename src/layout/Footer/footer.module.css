@@ -1,6 +1,6 @@
 .footer {
   background-color: #757575;
-  padding: 54px 71px;
+  padding: 5.4rem 7.1rem;
   position: relative;
 }
 
@@ -10,28 +10,28 @@
 }
 
 .footer li {
-  font-size: 20px;
+  font-size: 2rem;
   list-style: none;
   display: flex;
   align-items: center;
-  column-gap: 29px;
+  column-gap: 2.9rem;
 }
 
 .enamadIcon {
   position: absolute;
-  width: 159px;
-  left: 100px;
-  bottom: 35px;
+  width: 15.9rem;
+  left: 10rem;
+  bottom: 3.5rem;
 }
 
 .upSection {
   display: flex;
-  column-gap: 130px;
+  column-gap: 13rem;
   align-items: flex-start;
 }
 
 .logo {
-  width: 140px;
+  width: 14rem;
   object-fit: cover;
 }
 
@@ -39,21 +39,21 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  row-gap: 24px;
+  row-gap: 2.4rem;
 }
 
 .contactUs {
   display: flex;
   flex-direction: column;
-  row-gap: 46px;
+  row-gap: 4.6rem;
 }
 
 .linkTo {
   color: white;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 .confirmButton {
-  margin-right: 20px;
+  margin-right: 2rem;
 }

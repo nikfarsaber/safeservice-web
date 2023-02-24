@@ -1,8 +1,8 @@
 .scrollCircle {
   border-radius: 50%;
   position: fixed;
-  bottom: 15px;
-  left: 15px;
+  bottom: 1.5rem;
+  left: 1.5rem;
 }
 
 .mobileAppBlur {
@@ -23,8 +23,8 @@
 }
 
 .dashedBorder {
-  width: 160px;
-  height: 160px;
+  width: 16rem;
+  height: 16rem;
 }
 
 .mobileAppBoxDisplay {
@@ -37,18 +37,18 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  width: 110px;
-  height: 110px;
+  width: 11rem;
+  height: 11rem;
   box-shadow: 0 5px 5px 0 gainsboro;
   cursor: pointer;
 }
 
 .mobileAppBoxDisplay > p {
   text-align: center;
-  font-size: 10px;
+  font-size: 1rem;
 }
 
 .mobileIcon {
-  width: 25px;
+  width: 2.5rem;
   margin-bottom: -2px;
 }

@@ -4,34 +4,34 @@
 }
 
 .headerIcon {
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
 }
 
 .profileDetail h2 {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 400;
   display: flex;
   align-items: center;
   justify-content: center;
-  column-gap: 10px;
-  margin-bottom: 25px;
+  column-gap: 1rem;
+  margin-bottom: 2.5rem;
 }
 
 .hr {
   border-bottom: 2px solid #50c4cf;
-  width: 330px;
+  width: 33rem;
   margin-inline: auto;
-  margin-bottom: 70px;
+  margin-bottom: 7rem;
 }
 
 .gridBox {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin-inline: 48px;
-  margin-bottom: 50px;
-  column-gap: 24px;
-  row-gap: 36px;
+  margin-inline: 4.8rem;
+  margin-bottom: 5rem;
+  column-gap: 2.4rem;
+  row-gap: 3.6rem;
 }
 
 .input:last-of-type {
@@ -39,12 +39,12 @@
 }
 
 .editButton {
-  margin-bottom: 70px;
+  margin-bottom: 7rem;
   align-self: center;
   width: unset;
-  padding-inline: 88px;
+  padding-inline: 8.8rem;
 }
 
 .input label {
-  padding-inline-start: 20px;
+  padding-inline-start: 2rem;
 }

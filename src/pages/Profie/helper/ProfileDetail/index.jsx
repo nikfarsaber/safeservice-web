@@ -50,7 +50,6 @@ const ProfileDetail = () => {
   });
 
   useEffect(() => {
-    console.log(`isLoading = ${isLoading}, isInputEnabled = ${isInputEnabled}`);
     !!isLoading && isLoading === isInputEnabled && setIsInputEnabled(false);
     !isLoading && isLoading === isInputEnabled && setIsInputEnabled(true);
     profileData &&
@@ -151,9 +150,9 @@ const ProfileDetail = () => {
         />
         <Input
           className={styles.input}
-          value={profileDetailObject.genderValue}
           which="black"
-          type="text"
+          type="select"
+          selectOptions={["مرد", "زن"]}
           text="جنسیت"
           inputEnabled={isInputEnabled}
           inputValue={(value) => (inputGenderValue = value)}
@@ -196,7 +195,7 @@ const ProfileDetail = () => {
           className={styles.input}
           value={profileDetailObject.birthDayDateValue}
           which="black"
-          type="text"
+          type="date"
           text="تاریخ تولد"
           inputEnabled={isInputEnabled}
           inputValue={(value) => (inputBirthDayDateValue = value)}

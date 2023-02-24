@@ -1,6 +1,6 @@
 import styles from "./input.module.css";
 import { useState, useEffect } from "react";
-import { EyeSlashSvg, EyeSvg } from "../../assets/SvgInput";
+import { ArrowDown, EyeSlashSvg, EyeSvg } from "../../assets/SvgInput";
 
 const checkValidation = (validationArray, inputValue) => {
   const indexErrorValidate = validationArray.findIndex(
@@ -16,6 +16,7 @@ const Input = ({
   value = "",
   text,
   type,
+  selectOptions = [],
   placeholder,
   which = "black",
   className,
@@ -90,17 +91,47 @@ const Input = ({
         {text}
       </label>
       <div>
-        <input
-          onChange={valueChangeHandler}
-          onBlur={inputBlurHandler}
-          className={`${styles[which]} ${styles.input} ${styles[direction]}`}
-          type={
-            type !== "password" ? { type } : showPassword ? "text" : "password"
-          }
-          placeholder={placeholder}
-          value={enteredValue}
-          disabled={!inputEnabled}
-        />
+        {(type === "text" || type === "password") && (
+          <input
+            onChange={valueChangeHandler}
+            onBlur={inputBlurHandler}
+            className={`${styles[which]} ${styles.input} ${styles[direction]}`}
+            type={
+              type !== "password"
+                ? { type }
+                : showPassword
+                ? "text"
+                : "password"
+            }
+            placeholder={placeholder}
+            value={enteredValue}
+            disabled={!inputEnabled}
+          />
+        )}
+        {type === "select" && (
+          <select
+            onChange={valueChangeHandler}
+            onBlur={inputBlurHandler}
+            className={`${styles[which]} ${styles.input} ${styles.select} ${styles[direction]}`}
+          >
+            {selectOptions.map((element) => (
+              <option key={element} value={element}>
+                {element}
+              </option>
+            ))}
+          </select>
+        )}
+        {type === "select" && (
+          <ArrowDown className={styles.arrowIcon} color="#757575" />
+        )}
+        {type === "date" && (
+          <input
+            type="date"
+            onChange={valueChangeHandler}
+            onBlur={inputBlurHandler}
+            className={`${styles[which]} ${styles.input} ${styles[direction]}`}
+          />
+        )}
         {type === "password" &&
           (!showPassword ? (
             <EyeSlashSvg

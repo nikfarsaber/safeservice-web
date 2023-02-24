@@ -5,7 +5,7 @@
 }
 
 .logo {
-  width: 148px;
+  width: 14.8rem;
   cursor: pointer;
 }
 
@@ -16,27 +16,27 @@
 }
 
 .leftSide {
-  column-gap: 24px;
+  column-gap: 2.4rem;
 }
 
 .loginButton {
-  margin-inline: 49px 36px;
+  margin-inline: 4.9rem 3.6rem;
 }
 
 .profileView {
-  margin-inline: 45px;
+  margin-inline: 4.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
 }
 
 .profileView > p {
-  font-size: 20px;
+  font-size: 2rem;
   color: #5085cf;
 }
 
 .profileImg {
-  width: 46px;
-  height: 46px;
-  margin-left: 12px;
+  width: 4.6rem;
+  height: 4.6rem;
+  margin-left: 1.2rem;
 }

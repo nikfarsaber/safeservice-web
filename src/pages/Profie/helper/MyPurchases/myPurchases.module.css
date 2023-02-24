@@ -4,23 +4,23 @@
 }
 
 .headerIcon {
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
 }
 
 .profileDetail h2 {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 400;
   display: flex;
   align-items: center;
   justify-content: center;
-  column-gap: 10px;
-  margin-bottom: 25px;
+  column-gap: 1rem;
+  margin-bottom: 2.5rem;
 }
 
 .hr {
   border-bottom: 2px solid #50c4cf;
-  width: 330px;
+  width: 33rem;
   margin-inline: auto;
-  margin-bottom: 70px;
+  margin-bottom: 7rem;
 }

@@ -22,24 +22,24 @@
 }
 
 .header {
-  top: 60px;
-  right: 70px;
+  top: 6rem;
+  right: 7rem;
   display: flex;
-  gap: 61px;
+  gap: 6.1rem;
   align-items: center;
 }
 
 .socialMediaBox {
   top: 0;
-  left: -40px;
+  left: -4rem;
 }
 
 .getApp {
   border: 1px solid #000;
   background: transparent;
-  border-radius: 25px;
-  padding: 28px 36px;
-  font-size: 20px;
+  border-radius: 2.5rem;
+  padding: 2.8rem 3.6rem;
+  font-size: 2rem;
   font-weight: 400;
   cursor: pointer;
 }
@@ -63,10 +63,10 @@
 .goToHome {
   border: 2px solid #fff;
   border-radius: 50%;
-  right: 50px;
-  bottom: 43px;
-  width: 90px;
-  height: 90px;
+  right: 5rem;
+  bottom: 4.3rem;
+  width: 9rem;
+  height: 9rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,11 +74,11 @@
 }
 
 .linkTo {
-  left: 99px;
-  bottom: 81px;
+  left: 9.9rem;
+  bottom: 8.1rem;
   display: flex;
-  gap: 40px;
-  font-size: 24px;
+  gap: 4rem;
+  font-size: 2.4rem;
   color: #fff;
   font-weight: 400;
 }
@@ -88,19 +88,19 @@
 }
 
 .textArea {
-  top: 273px;
-  right: 64px;
+  top: 27.3rem;
+  right: 6.4rem;
   display: flex;
   flex-direction: column;
   text-align: center;
-  gap: 36px;
+  gap: 3.6rem;
   font-weight: 400;
 }
 
 .textArea > p {
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 .textArea > h3 {
-  font-size: 32px;
+  font-size: 3.2rem;
 }

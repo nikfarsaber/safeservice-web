@@ -6,6 +6,10 @@
   direction: rtl;
 }
 
+html {
+  font-size: 44.4%;
+}
+
 /* Font */
 @font-face {
   font-family: "B Yekan";

@@ -2,18 +2,18 @@
   background-color: #c4c4c4;
   display: flex;
   justify-content: center;
-  padding: 70px;
+  padding: 7rem;
   position: relative;
-  margin-inline: -35px;
+  margin-inline: -3.5rem;
 }
 
 .introductionMobileApp > span {
-  top: 50px;
-  left: 100px;
+  top: 5rem;
+  left: 10rem;
 }
 
 #refForIntroduction #phoneImg {
-  width: 300px;
+  width: 30rem;
 }
 
 #refForIntroduction {
@@ -25,49 +25,49 @@
 }
 
 img[alt="arrow-dashed-line-three"] {
-  width: 200px;
-  left: -195px;
-  top: 320px;
+  width: 20rem;
+  left: -19.5rem;
+  top: 32rem;
 }
 
 img[alt="arrow-dashed-line-two"] {
-  width: 200px;
-  right: -185px;
-  top: 300px;
+  width: 20rem;
+  right: -18.5rem;
+  top: 30rem;
 }
 
 img[alt="arrow-dashed-line-one"] {
-  width: 200px;
-  right: -185px;
-  top: -30px;
+  width: 20rem;
+  right: -18.5rem;
+  top: -3rem;
 }
 
 .text {
-  border-radius: 12px;
-  padding: 16px 18px;
-  font-size: 20px;
+  border-radius: 1.2rem;
+  padding: 1.6rem 1.8rem;
+  font-size: 2rem;
   background-color: transparent;
 }
 
 .text#waranty {
-  top: -35px;
-  right: -400px;
+  top: -3.5rem;
+  right: -40rem;
   border: 2px solid #5085cf;
   direction: rtl;
 }
 
 .text#newNews {
-  left: -420px;
-  top: 580px;
+  left: -42rem;
+  top: 58rem;
   border: 2px solid #5085cf;
-  padding-inline: 24px;
+  padding-inline: 2.4rem;
   direction: rtl;
 }
 
 .text#bestBny {
-  right: -460px;
-  top: 450px;
+  right: -46rem;
+  top: 45rem;
   border: 2px solid #50c4cf;
-  padding-inline: 24px;
+  padding-inline: 2.4rem;
   direction: rtl;
 }
