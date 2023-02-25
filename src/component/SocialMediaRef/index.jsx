@@ -8,6 +8,10 @@ const SocialMediaRef = ({ className, color = "white" }) => {
       "https://instagram.com/safeservice.ir?igshid=MDM4ZDc5MmU=";
   };
 
+  const linkedInClickHandler = () => {
+    window.location.href = "https://www.linkedin.com/company/safeservice/";
+  };
+
   return (
     <div className={`${className} ${styles.socialMediaRef}`}>
       <InstagramSvg
@@ -15,7 +19,11 @@ const SocialMediaRef = ({ className, color = "white" }) => {
         color={color}
         onClick={instagramClickHandler}
       />
-      <LinkedInIcon className={styles.svgIcon} color={color} />
+      <LinkedInIcon
+        className={styles.svgIcon}
+        color={color}
+        onClick={linkedInClickHandler}
+      />
     </div>
   );
 };
