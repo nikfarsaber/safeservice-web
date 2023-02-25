@@ -55,5 +55,16 @@
 }
 
 .confirmButton {
+  margin-top: 2.8rem;
   margin-right: 2rem;
+}
+
+.downSection {
+  display: flex;
+  color: white;
+  width: 50rem;
+}
+
+.downSection input {
+  width: 30rem;
 }

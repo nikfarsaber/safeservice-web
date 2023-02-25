@@ -66,7 +66,7 @@ const Profile = () => {
                   className={styles.profileImage}
                 />
               </div>
-              <div className={styles.name}>
+              <div className={styles.profileName}>
                 {profileShortDetail.name + " " + profileShortDetail.family}
               </div>
             </div>
@@ -80,7 +80,7 @@ const Profile = () => {
                 id="profile-list-option-personal-detail"
               >
                 <EditIcon color="#5085CF" className={styles.optionIcon} />
-                <p>اطلاعات شخصی</p>
+                <p className={styles.optionItemText}>اطلاعات شخصی</p>
               </li>
               <li
                 className={styles.optionsItem}
@@ -90,7 +90,7 @@ const Profile = () => {
                 id="profile-list-option-my-device"
               >
                 <MyDeviceIcon color="#5085CF" className={styles.optionIcon} />
-                <p>دستگاه‌های من</p>
+                <p className={styles.optionItemText}>دستگاه‌های من</p>
               </li>
               <li
                 className={styles.optionsItem}
@@ -99,14 +99,14 @@ const Profile = () => {
                 }
               >
                 <BasketSvg color="#5085CF" className={styles.optionIcon} />
-                <p>خریدهای من</p>
+                <p className={styles.optionItemText}>خریدهای من</p>
               </li>
               <li
                 className={styles.optionsItem}
                 onClick={() => checkClickHandler("profile-list-option-log-out")}
               >
                 <LogOutIcon color="#5085CF" className={styles.optionIcon} />
-                <p>خروج</p>
+                <p className={styles.optionItemText}>خروج</p>
               </li>
             </ul>
           </div>

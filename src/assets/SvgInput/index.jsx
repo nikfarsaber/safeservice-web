@@ -74,33 +74,38 @@ export const FacebookSvg = ({ color, className }) => {
   );
 };
 
-export const InstagramSvg = ({ color, className }) => {
+export const InstagramSvg = ({ color, className, onClick }) => {
   return (
     <svg
       className={className}
-      width="36"
-      height="36"
-      viewBox="0 0 36 36"
-      fill="none"
+      onClick={onClick}
       xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 50 50"
+      width="50px"
+      height="50px"
     >
-      <rect
-        x="6.16089"
-        y="7.88477"
-        width="26.9544"
-        height="26.1842"
-        rx="4"
-        stroke={color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+      {" "}
+      <path
+        d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"
+        fill={color}
       />
-      <circle
-        cx="19.6381"
-        cy="21.3619"
-        r="5.00581"
-        stroke={color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+    </svg>
+  );
+};
+
+export const LinkedInIcon = ({ color, className, onClick }) => {
+  return (
+    <svg
+      className={className}
+      onClick={onClick}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 50 50"
+      width="50px"
+      height="50px"
+    >
+      <path
+        d="M25,2C12.318,2,2,12.317,2,25s10.318,23,23,23s23-10.317,23-23S37.682,2,25,2z M18,35h-4V20h4V35z M16,17 c-1.105,0-2-0.895-2-2c0-1.105,0.895-2,2-2s2,0.895,2,2C18,16.105,17.105,17,16,17z M37,35h-4v-5v-2.5c0-1.925-1.575-3.5-3.5-3.5 S26,25.575,26,27.5V35h-4V20h4v1.816C27.168,20.694,28.752,20,30.5,20c3.59,0,6.5,2.91,6.5,6.5V35z"
+        fill={color}
       />
     </svg>
   );

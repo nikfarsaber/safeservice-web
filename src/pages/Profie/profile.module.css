@@ -67,6 +67,10 @@
   height: 12rem;
 }
 
+.profileName {
+  font-size: 1.8rem;
+}
+
 .optionSide hr {
   margin-inline: 4.2rem 3.6rem;
 }
@@ -89,8 +93,8 @@
   align-items: center;
 }
 
-.optionsItem p {
-  size: 1.6rem;
+.optionItemText {
+  font-size: 1.8rem;
   font-weight: 400;
   padding-inline-start: 1.8rem;
 }

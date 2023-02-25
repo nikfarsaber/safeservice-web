@@ -62,7 +62,7 @@ const Footer = () => {
         <Button
           which="confirm"
           text="ثبت"
-          importStyle={{ fontSize: "20px" }}
+          importStyle={{ fontSize: "2rem" }}
           className={styles.confirmButton}
         />
       </div>

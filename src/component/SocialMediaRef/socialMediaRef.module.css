@@ -1,6 +1,7 @@
 .svgIcon {
   height: 3rem;
-  margin-inline: 1.6rem;
+  margin-inline: 0.3rem;
+  cursor: pointer;
 }
 
 .socialMediaRef {

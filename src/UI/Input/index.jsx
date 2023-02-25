@@ -18,7 +18,7 @@ const Input = ({
   type,
   selectOptions = [],
   placeholder,
-  which = "black",
+  which,
   className,
   important,
   direction,
@@ -37,7 +37,6 @@ const Input = ({
   const [hasError, setHasError] = useState(false);
   const [resetFlag, setResetFlag] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
   const [valueIsValid, errorValidText] = checkValidation(
     validations,
     enteredValue
@@ -48,7 +47,7 @@ const Input = ({
   useEffect(() => {
     setEnteredValue(value);
     inputValue(value);
-  }, [value, inputValue]);
+  }, [value]);
 
   if (reset !== resetFlag) {
     setEnteredValue("");

@@ -16,21 +16,20 @@ import styles from "./authentication.module.css";
 import logo from "../../assets/pngFolder/safeservice-logo.png";
 import { useEffect, useState } from "react";
 
+let [
+  isInputNumberValid,
+  isInputFirstNameValid,
+  isInputLastNameValid,
+  isInputPasswordValid,
+] = [false, false, false, false];
+
+let [
+  inputNumberValue,
+  inputFirstNameValue,
+  inputLastNameValue,
+  inputPasswordValue,
+] = [];
 const Authentication = () => {
-  let [
-    isInputNumberValid,
-    isInputFirstNameValid,
-    isInputLastNameValid,
-    isInputPasswordValid,
-  ] = [false, false, false, false];
-
-  let [
-    inputNumberValue,
-    inputFirstNameValue,
-    inputLastNameValue,
-    inputPasswordValue,
-  ] = [];
-
   const dispatch = useDispatch();
 
   const [
@@ -50,6 +49,7 @@ const Authentication = () => {
   const [situation, setSituation] = useState("inputPhoneNumber");
 
   let isFormValid = false;
+  console.log("authentication component is re-render", phoneNumber);
 
   useEffect(() => {
     if (logInNumberError?.status === 404) {
@@ -61,7 +61,9 @@ const Authentication = () => {
       }
     }
 
+    console.log(logInNumberData, signUpNumberData, situation, inputNumberValue);
     if (logInNumberData || signUpNumberData) {
+      console.log(inputNumberValue);
       setPhoneNumber(inputNumberValue);
       setSituation(logInNumberData ? "signIn" : "signUp");
       setFormSubmited(false);
@@ -71,8 +73,8 @@ const Authentication = () => {
     if (logInData || registerData) {
       const data = logInData || registerData;
       data.token && localStorage.setItem("userToken", data.token);
-      dispatch(logIn());
       navigate("/Home", { replace: true });
+      dispatch(logIn());
     }
   }, [
     logInNumberError,
@@ -80,12 +82,6 @@ const Authentication = () => {
     signUpNumberData,
     registerData,
     logInData,
-    dispatch,
-    inputNumberValue,
-    isFormValid,
-    navigate,
-    situation,
-    sinUpNumberTrigger,
   ]);
 
   const submitClickHandler = () => {
@@ -94,8 +90,10 @@ const Authentication = () => {
     if (isFormValid) {
       console.log("go to signIn");
       if (situation === "inputPhoneNumber") {
+        console.log(inputNumberValue);
         inputNumberInTrigger(inputNumberValue);
       } else if (situation === "signIn") {
+        console.log(phoneNumber);
         logInTrigger({
           phoneNumber,
           otpNumber: inputPasswordValue,
@@ -228,7 +226,13 @@ const Authentication = () => {
           className={styles.button}
           onClick={submitClickHandler}
           which="confirm"
-          text="ورود / ثبت نام"
+          text={
+            situation === "inputPhoneNumber"
+              ? "ورود/ثبت نام"
+              : situation === "signIn"
+              ? "ورود"
+              : "ثبت نام"
+          }
         />
         <hr className={styles.dividerLine} />
         <div className={styles.socialMediaBox}>

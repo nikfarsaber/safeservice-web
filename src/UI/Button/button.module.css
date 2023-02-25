@@ -6,7 +6,7 @@
 
 .register {
   border: 2px solid #5085cf;
-  border-radius: 1.6rem;
+  border-radius: 2rem;
   background-color: transparent;
   color: #50c4cf;
   font-size: 1.6rem;
@@ -14,7 +14,7 @@
 
 .confirm {
   border: 2px solid #50c4cf;
-  border-radius: 1.6rem;
+  border-radius: 2rem;
   background-color: #50c4cf;
   color: #fff;
   font-size: 1.6rem;
