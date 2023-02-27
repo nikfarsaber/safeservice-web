@@ -78,7 +78,7 @@ const Header = ({ marginInline, className }) => {
           which="register"
           onClick={phoneRegisterClickHandler}
         />
-        <Button text="ثبت گارانتی" which="confirm" />
+        {/* <Button text="ثبت گارانتی" which="confirm" /> */}
       </div>
     </header>
   );

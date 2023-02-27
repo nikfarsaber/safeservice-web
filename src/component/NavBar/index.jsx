@@ -8,31 +8,31 @@ const NavBar = ({ fontSize = "2.4rem", spaceBetween = "3.8rem" }) => {
       text: "درباره ما",
       link: "/about-us",
     },
-    {
-      name: "products",
-      text: "محصولات",
-      link: "/products",
-    },
+    // {
+    //   name: "products",
+    //   text: "محصولات",
+    //   link: "/products",
+    // },
     {
       name: "contact-us",
       text: "تماس با ما",
       link: "/contact-us",
     },
-    {
-      name: "repair",
-      text: "درخواست تعمیر",
-      link: "/repair",
-    },
-    {
-      name: "trainings",
-      text: "آموزش‌ها",
-      link: "/trainings",
-    },
-    {
-      name: "news",
-      text: "اخبار",
-      link: "/news",
-    },
+    // {
+    //   name: "repair",
+    //   text: "درخواست تعمیر",
+    //   link: "/repair",
+    // },
+    // {
+    //   name: "trainings",
+    //   text: "آموزش‌ها",
+    //   link: "/trainings",
+    // },
+    // {
+    //   name: "news",
+    //   text: "اخبار",
+    //   link: "/news",
+    // },
   ];
 
   return (

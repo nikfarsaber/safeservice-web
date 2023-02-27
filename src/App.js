@@ -18,6 +18,7 @@ function App() {
       console.log(error);
     } else if (isLoggedIn && userShortDetail) {
       dispatch(getUserDetail(userShortDetail));
+      console.log(userShortDetail);
     } else if (!isLoggedIn) {
       dispatch(logOut());
     }

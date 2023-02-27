@@ -28,6 +28,7 @@ const Profile = () => {
 
   const dispatch = useDispatch();
   const profileShortDetail = useSelector((state) => state.user.userShortDetile);
+  
 
   useEffect(() => {
     if (situation !== params.situation) {

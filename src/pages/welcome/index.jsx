@@ -11,6 +11,10 @@ const Welcome = () => {
   const navigate = useNavigate();
   const goToHomeClickHandler = () => navigate("/Home", { replace: true });
 
+  const phoneRegisterClickHandler = () => {
+    window.location.href = "https://safeservice.shop/webpanel/verify";
+  };
+
   return (
     <div className={styles.page}>
       <img className={styles.backgroundImg} src={welcomeBackground} alt="" />
@@ -21,8 +25,8 @@ const Welcome = () => {
       </header>
       <SocialMedia className={styles.socialMediaBox} />
       <div className={styles.linkTo}>
-        <p>۰۱ / ریچستر موبایل</p>
-        <p>۰۲ / ثبت گارانتی</p>
+        <p onClick={phoneRegisterClickHandler}>ریجستر موبایل</p>
+        {/* <p>۰۲ / ثبت گارانتی</p> */}
       </div>
       <div className={styles.goToHome}>
         <ArowSvg color={"white"} onClick={goToHomeClickHandler} />

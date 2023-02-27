@@ -175,7 +175,7 @@ const ProfileDetail = () => {
           type="text"
           important={true}
           submited={formSubmited}
-          inputEnabled={isInputEnabled}
+          inputEnabled={false}
           inputValue={(value) => (inputPhoneNumberValue = value)}
           isValid={(value) => {
             isInputPhoneNumberValid = value;
