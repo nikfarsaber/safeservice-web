@@ -1,0 +1,7 @@
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: calc((100% - 3 * 30.7rem) / 2);
+  row-gap: 5.6rem;
+  margin-bottom: 10.4rem;
+}

@@ -8,11 +8,11 @@ const NavBar = ({ fontSize = "2.4rem", spaceBetween = "3.8rem" }) => {
       text: "درباره ما",
       link: "/about-us",
     },
-    // {
-    //   name: "products",
-    //   text: "محصولات",
-    //   link: "/products",
-    // },
+    {
+      name: "products",
+      text: "محصولات",
+      link: "/products",
+    },
     {
       name: "contact-us",
       text: "تماس با ما",

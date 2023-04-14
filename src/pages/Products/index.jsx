@@ -3,7 +3,7 @@ import Header from "../../layout/Header";
 import EasyAccess from "./helper/EasyAccess";
 import FiltersBox from "./helper/FiltersBox";
 import SortBox from "./helper/SortBox";
-import ProductsGrid from "./helper/ProductsGride";
+import ProductsGrid from "./helper/ProductsGrid";
 
 import styles from "./products.module.css";
 
@@ -23,7 +23,7 @@ const Products = () => {
             </div>
             <FiltersBox filtersDetails={filterList} />
           </div>
-          <div className={styles.lefSide}>
+          <div className={styles.leftSide}>
             <SortBox />
             <div className={styles.hr}></div>
             <ProductsGrid />

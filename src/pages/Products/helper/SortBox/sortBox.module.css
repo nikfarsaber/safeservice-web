@@ -1,0 +1,9 @@
+.sortBox {
+  font-size: 1.6rem;
+  font-weight: 400;
+  display: flex;
+  column-gap: 2.4rem;
+  align-items: center;
+  margin-bottom: 3.2rem;
+  margin-inline-start: 1.7rem;
+}

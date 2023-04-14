@@ -1,4 +1,5 @@
 import TwoRange from "../../../../UI/TwoRange";
+import ToggleSwitch from "../../../../UI/ToggleSwitch";
 import styles from "./filtersBox.module.css";
 
 const FiltersBox = ({ filtersDetails }) => {
@@ -27,16 +28,17 @@ const FiltersBox = ({ filtersDetails }) => {
           return <div key={element.id} className={styles.hr}></div>;
         } else if (element.type === "toggle") {
           return (
-            <div key={element.id} className={styles.filter}>
-              <label htmlFor={`inputFilter_${element.name}`}>
+            <div
+              key={element.id}
+              className={`${styles.filter} ${styles.toggleFilter}`}
+            >
+              <label
+                htmlFor={`inputFilter_${element.name}`}
+                className={styles.toggleLabel}
+              >
                 {element.text}
               </label>
-              <input
-                name={element.name}
-                id={`inputFilter_${element.name}`}
-                type="checkbox"
-                value="fdf"
-              />
+              <ToggleSwitch />
             </div>
           );
         } else if ((element.type = "twoRange")) {

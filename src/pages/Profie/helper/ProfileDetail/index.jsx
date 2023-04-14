@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useGetUserDetailQuery } from "../../../../redux/services/profileApi";
+import {
+  useGetUserDetailQuery,
+  useSetUserDetailMutation,
+} from "../../../../redux/services/profileApi";
 
 import styles from "./profileDetail.module.css";
 
@@ -44,6 +47,9 @@ const ProfileDetail = () => {
 
   let isFormValid = false;
 
+  const [setProfileDetailTrigger, { data: setProfileData }] =
+    useSetUserDetailMutation();
+
   const { data: profileData, isLoading } = useGetUserDetailQuery({
     token: localStorage.getItem("userToken"),
     userId: profileShortDetail._id,
@@ -75,7 +81,22 @@ const ProfileDetail = () => {
     !formSubmited && setFormSubmited(true);
     formValidCheck();
     if (isFormValid) {
-      console.log(profileDetailObject);
+      setProfileDetailTrigger({
+        token: localStorage.getItem("userToken"),
+        userId: profileShortDetail._id,
+        userDetail: {
+          phone: inputPhoneNumberValue,
+          name: inputFirstNameValue,
+          family: inputLastNameValue,
+          gender: inputGenderValue,
+          nationalcade: inputNatinalCodeValue,
+          birthdate: inputBirthDayDateValue,
+          province: inputStateValue,
+          city: inputCityValue,
+          address: inputAdderessValue,
+        },
+      });
+      // console.log(profileDetailObject);
       console.log(
         inputPhoneNumberValue,
         inputFirstNameValue,
@@ -165,6 +186,15 @@ const ProfileDetail = () => {
           text="کدملی"
           inputEnabled={isInputEnabled}
           inputValue={(value) => (inputNatinalCodeValue = value)}
+          validations={[
+            {
+              validate: (value) =>
+                value.trim() == "" ||
+                /^(\d{10,10})$/.test(value) ||
+                /^[\u06F0-\u06F9]{10}/.test(value),
+              errorText: "کد ملی وارد شده باید ۱۰ رقم باشد.",
+            },
+          ]}
         />
         <Input
           direction="left"

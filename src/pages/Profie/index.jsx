@@ -28,7 +28,6 @@ const Profile = () => {
 
   const dispatch = useDispatch();
   const profileShortDetail = useSelector((state) => state.user.userShortDetile);
-  
 
   useEffect(() => {
     if (situation !== params.situation) {
@@ -112,7 +111,7 @@ const Profile = () => {
             </ul>
           </div>
           <div className={styles.detailSection}>
-            {situation === "" && <ProfileDetail />}
+            {situation === "" && profileShortDetail && <ProfileDetail />}
             {situation === "profile-list-option-my-device" && <MyDevice />}
             {situation === "profile-list-option-my-purchases" && (
               <MyPurchases />

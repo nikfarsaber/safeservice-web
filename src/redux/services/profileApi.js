@@ -7,26 +7,29 @@ export const profileApi = createApi({
   }),
   endpoints: (builder) => ({
     getUserDetail: builder.query({
-      query: ({ token, userId }) => {
-        if (userId && token) {
-          return {
-            url: `get/${userId}`,
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          };
-        } else {
-          return {
-            url: "",
-          };
-        }
+      query: ({ token, userId = "" }) => {
+        return {
+          url: `get/${userId}`,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
       },
     }),
 
     setUserDetail: builder.mutation({
       query: ({ token, userId, userDetail }) => {
+        console.log(userDetail);
+        let urlQuery = `set/${userId}?`;
+        let firstKey = true;
+        for (const [key, value] of Object.entries(userDetail)) {
+          urlQuery += `${!firstKey ? "&" : ""}${key}=${value}`;
+          if (firstKey) firstKey = false;
+        }
+        console.log(urlQuery);
         return {
-          url: `get/${userId}`,
+          url: `${urlQuery}`,
+          method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -36,4 +39,4 @@ export const profileApi = createApi({
   }),
 });
 
-export const { useGetUserDetailQuery } = profileApi;
+export const { useGetUserDetailQuery, useSetUserDetailMutation } = profileApi;

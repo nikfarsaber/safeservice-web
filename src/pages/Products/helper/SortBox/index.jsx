@@ -2,7 +2,7 @@ import styles from "./sortBox.module.css";
 
 const SortBox = () => {
   const sortList = [
-    { name: "mostRelevant", text: "مرتبط‌ترین" },
+    { name: "mostRelevant", text: "مرتبط ترین" },
     { name: "cheapest", text: "ارزان‌ترین" },
     { name: "mostExpensive", text: "گران‌ترین" },
     { name: "mostSell", text: "پرفروش‌ترین" },
@@ -10,7 +10,7 @@ const SortBox = () => {
 
   return (
     <div className={styles.sortBox}>
-      <p>به ترتیب</p>
+      <p>ترتیب:</p>
       {sortList.map((element) => (
         <p className={styles.sortChoice} key={element.name}>
           {element.text}
