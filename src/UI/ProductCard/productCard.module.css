@@ -7,6 +7,12 @@
   border-radius: 1.5rem;
   border: 1px #d9d9d9 solid;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  justify-content: space-between;
+}
+
+.topProductCard {
+  display: flex;
+  flex-direction: column;
 }
 
 .productImg {
@@ -26,6 +32,7 @@
 .offerRow {
   direction: ltr;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   font-size: 1.8rem;
 }
@@ -34,9 +41,27 @@
   background-color: #cf5b50;
   padding: 0.7rem 1.3rem;
   border-radius: 10rem;
+  font-size: 1.8rem;
   color: white;
+}
+
+.initialPrice {
+  font-size: 1.6rem;
+  color: #757575;
+  text-decoration: line-through 1px solid #f24547;
 }
 
 .productBottom {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quickAccess {
+  display: flex;
+  column-gap: 2.4rem;
+}
+
+.finalPrice {
+  font-size: 1.8rem;
 }
