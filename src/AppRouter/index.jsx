@@ -12,6 +12,7 @@ import Home from "../pages/Home";
 import Authentication from "../pages/Authentication";
 import Profile from "../pages/Profie";
 import NotFound from "../pages/NotFound";
+import Product from "../pages/Product";
 
 const AppRouter = () => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
@@ -27,6 +28,7 @@ const AppRouter = () => {
         <Route path="/repair" element={<Repair />} />
         <Route path="/trainings" element={<Trainings />} />
         <Route path="/news" element={<News />} />
+        <Route path="/product/:productId" element={<Product />} />
         {!isLoggedIn && (
           <Route path="/authentication" element={<Authentication />} />
         )}
