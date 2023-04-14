@@ -15,14 +15,19 @@ function App() {
 
   useEffect(() => {
     if (error) {
-      console.log(error);
+      console.log(error, error.status);
+      if (error.status === 401) {
+        localStorage.removeItem("userToken");
+        dispatch(logOut());
+      }
+      // } else if (isLoggedIn && !userShortDetail) {
     } else if (isLoggedIn && userShortDetail) {
       dispatch(getUserDetail(userShortDetail));
       console.log(userShortDetail);
     } else if (!isLoggedIn) {
       dispatch(logOut());
     }
-  }, [isLoggedIn, userShortDetail]);
+  }, [isLoggedIn, userShortDetail, error]);
 
   return (
     <div className="App">
