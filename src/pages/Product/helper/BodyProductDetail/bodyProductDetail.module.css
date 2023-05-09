@@ -1,0 +1,88 @@
+.ProductBody {
+  margin-inline: 5.8rem;
+  border: 1px solid #c4c4c4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 1.6rem;
+  margin-bottom: 10rem;
+}
+
+.optionBox {
+  display: flex;
+  margin-block: 4.6rem 3.8rem;
+  justify-content: center;
+  column-gap: 3.6rem;
+}
+
+.optionButton {
+  border: 1px solid #5085cf;
+  border-radius: 1.8rem;
+  background-color: transparent;
+  padding-inline: 3rem;
+  height: 6.2rem;
+  display: flex;
+  column-gap: 2.4rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.buttonIcon {
+  width: 2.8rem;
+}
+
+.hr {
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.reviewBox {
+  padding: 3rem 8.7rem 13.4rem 8.7rem;
+}
+
+.reviewBox h2 {
+  margin-top: 4.3rem;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+  line-height: 4rem;
+}
+
+.reviewBox p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 4rem;
+  text-align: justify;
+  margin-bottom: 2rem;
+}
+
+.truncatedText {
+  max-height: 30rem;
+  overflow: hidden;
+}
+
+.showMore {
+  cursor: pointer;
+  color: #50c4cf;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.specBox {
+  padding: 7.6rem 18rem 13rem 18rem;
+}
+
+.specRow {
+  display: flex;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 2.6rem;
+  line-height: 5rem;
+}
+
+.specName {
+  width: 30rem;
+  color: #070707;
+  flex-shrink: 0;
+}
+
+.specValue {
+  color: #757575;
+}

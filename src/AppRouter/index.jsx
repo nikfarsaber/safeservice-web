@@ -13,6 +13,7 @@ import Authentication from "../pages/Authentication";
 import Profile from "../pages/Profie";
 import NotFound from "../pages/NotFound";
 import Product from "../pages/Product";
+import Cart from "../pages/Cart";
 
 const AppRouter = () => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
@@ -51,6 +52,7 @@ const AppRouter = () => {
         {isLoggedIn && (
           <Route path="/profile/:situation" element={<Profile />} />
         )}
+        {isLoggedIn && <Route path="/cart" element={<Cart />} />}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

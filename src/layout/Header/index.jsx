@@ -7,7 +7,6 @@ import styles from "./header.module.css";
 
 import profileBlank from "../../assets/pngFolder/profileBlank.png";
 import logo from "../../assets/pngFolder/safeservice-logo.png";
-import { IconProfile } from "../../assets/SvgInput";
 import { useEffect, useState } from "react";
 
 const Header = ({ marginInline, className }) => {
@@ -26,7 +25,7 @@ const Header = ({ marginInline, className }) => {
   }, [userShortDetail, isLoggedIn]);
 
   const logInButtonHandler = () => {
-    navigate("/authentication", { replace: true });
+    navigate("/authentication", { replace: false });
   };
 
   const phoneRegisterClickHandler = () => {

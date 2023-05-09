@@ -1,5 +1,5 @@
 import styles from "./productCard.module.css";
-
+import { useNavigate } from "react-router-dom";
 import { HeartSvg, BasketSvg } from "../../assets/SvgInput";
 
 const ProductCard = ({
@@ -10,12 +10,23 @@ const ProductCard = ({
   withoutPrice,
   offerPercent,
 }) => {
-  const clickBasketHandler = () => {};
+  const navigate = useNavigate();
+  const clickBasketHandler = (event) => {
+    event.stopPropagation();
+    console.log("click on basket");
+  };
 
-  const clickHeartHandler = () => {};
+  const clickHeartHandler = (event) => {
+    event.stopPropagation();
+    console.log("click on heart");
+  };
+
+  const clickCardHandler = () => {
+    navigate(`/product/${id}`, { replace: false });
+  };
 
   return (
-    <div className={styles.productCard}>
+    <div className={styles.productCard} onClick={clickCardHandler}>
       <div className={styles.topProductCard}>
         <img src={imgUrl} alt={productName} className={styles.productImg} />
         <p className={styles.productName}>{productName}</p>

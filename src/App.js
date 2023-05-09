@@ -23,7 +23,6 @@ function App() {
       // } else if (isLoggedIn && !userShortDetail) {
     } else if (isLoggedIn && userShortDetail) {
       dispatch(getUserDetail(userShortDetail));
-      console.log(userShortDetail);
     } else if (!isLoggedIn) {
       dispatch(logOut());
     }

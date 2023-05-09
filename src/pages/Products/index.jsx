@@ -16,7 +16,7 @@ const Products = () => {
         <Header className={styles.header} />
         <div className={styles.hr}></div>
         <EasyAccess className={styles.easyAccess} />
-        <div className={styles.productpageBody}>
+        <div className={styles.productspageBody}>
           <div className={styles.rightSide}>
             <div className={styles.productsCategory}>
               محصولات/ تلفن همراه/ آیفون

@@ -1,0 +1,198 @@
+.headProductDetail {
+  margin-inline: 5.8rem;
+  border: 1px solid #c4c4c4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 1.6rem;
+  margin-bottom: 4.8rem;
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+}
+
+.productImages {
+  border-left: 1px solid #c4c4c4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productDetail {
+  padding: 10rem 5rem 10rem 5rem;
+}
+
+.showImage {
+  width: 40rem;
+  height: 40rem;
+  object-fit: contain;
+  margin-block: 8.2rem 4.2rem;
+}
+
+.thumbnailBox {
+  width: 6.2rem;
+  height: 6.2rem;
+  padding: 4px;
+  border-radius: 1rem;
+  border: 1px solid #c4c4c4;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  display: flex;
+  background-color: white;
+  cursor: pointer;
+}
+
+.thumbnailBox.activeThumbnail {
+  border: 1px solid #5085cf;
+  position: relative;
+}
+
+.thumbnailBox.activeThumbnail::after {
+  content: "";
+  width: 4.8rem;
+  height: 3px;
+  background-color: #50c4cf;
+  border-radius: 2px;
+  position: absolute;
+  bottom: -2rem;
+}
+
+.thumbnailImage {
+  width: 100%;
+  object-fit: contain;
+}
+
+.thumbnailImages {
+  display: flex;
+  column-gap: 0.9rem;
+  margin-bottom: 12.7rem;
+}
+
+.productPersianName {
+  font-size: 2rem;
+  margin-bottom: 2.4rem;
+}
+
+.productEnglishName {
+  font-size: 1.6rem;
+  color: #757575;
+  margin-bottom: 4rem;
+}
+
+.hr {
+  border-bottom: 1px solid #c4c4c4;
+  margin-bottom: 4rem;
+}
+
+.configChoose {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3.6rem;
+}
+
+.configChoose > p {
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-inline-end: 1.4rem;
+}
+
+.configsBox {
+  display: flex;
+  align-items: center;
+  column-gap: 0.8rem;
+}
+
+.config {
+  padding: 1.5rem 2rem 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  border: 1px solid #c4c4c4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 1.4rem;
+  cursor: pointer;
+}
+
+.config.activeConfig {
+  border: 2px solid #50c4cf;
+}
+
+.configColor {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+}
+
+.configText {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.priceBox {
+  margin-inline-start: 2.5rem;
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
+  margin-bottom: 3.6rem;
+  font-size: 2rem;
+}
+
+.waranty {
+  margin-inline-start: 2.5rem;
+  display: flex;
+  column-gap: 0.9rem;
+  margin-bottom: 4rem;
+}
+
+.warrantyIcon {
+  width: 2.7rem;
+}
+
+.warrantyDetail {
+  padding-top: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.4rem;
+}
+
+.warrantyDetail > p {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.warrantyName {
+  margin-inline-start: 0.7rem;
+  color: #757575;
+}
+
+.access {
+  margin-inline-start: 6rem;
+  display: flex;
+  column-gap: 1.2rem;
+}
+
+.access > div {
+  height: 5.3rem;
+  padding-inline: 1.6rem;
+  border: 1px solid #50c4cf;
+  display: flex;
+  align-items: center;
+  border-radius: 1.2rem;
+}
+
+.heartBox {
+  cursor: pointer;
+}
+
+.heartIcon {
+  width: 2.2rem;
+}
+
+.purchaseOptions {
+  column-gap: 1rem;
+  cursor: pointer;
+}
+
+.purchaseOptions > p {
+  font-size: 1.4rem;
+}
+
+.basketIcon {
+  width: 2rem;
+}

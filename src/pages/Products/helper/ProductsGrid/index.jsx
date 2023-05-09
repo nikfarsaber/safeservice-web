@@ -1,35 +1,37 @@
 import { useEffect, useState } from "react";
-import { fetchProduct } from "../../../../htmlRequest";
 import ProductCard from "../../../../UI/ProductCard";
 import styles from "./productsGrid.module.css";
+import { useGetProductsQuery } from "../../../../redux/services/product/productDetailApi";
 
 const ProductsGrid = () => {
-  const [productsData, setProductsData] = useState("");
+  const { data: productsData, isLoading } = useGetProductsQuery({
+    pageSize: 6,
+    pageNumber: 1,
+  });
 
-  const getData = async () => {
-    const data = await fetchProduct();
-    data && setProductsData(data);
-  };
+  const getData = async () => {};
 
   useEffect(() => {
-    if (!productsData) {
-      getData();
-    }
     console.log(productsData);
   }, [productsData]);
 
   return (
     <div className={styles.productsGrid}>
+      {isLoading && <p>Loading ...</p>}
       {productsData &&
         productsData.map((element) => {
           return (
             <ProductCard
               key={element.id}
-              productName={element.name}
-              finalPrice={element.finalPrice}
+              id={element.id}
+              productName={element.persian_name}
+              finalPrice={element.base_price}
               withoutPrice={element.price}
               offerPercent={element.offers}
-              imgUrl={element.url}
+              imgUrl={
+                element.thumbnail_main_image &&
+                `https://safeservice.storage.iran.liara.space/${element.thumbnail_main_image}`
+              }
             />
           );
         })}
